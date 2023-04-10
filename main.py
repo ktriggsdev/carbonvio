@@ -33,13 +33,17 @@
 # food waste?
 # Meat Consumption?
 
-monthly_electric = float(input("What is your monthly electric bill?: "))
+yearly_electric = float(input("What is your yearly electric bill? (KWh): "))
 
-monthly_gas = float(input("What is your monthly gas bill?: "))
+yearly_natural_gas = float(input("What is your yearly natural gas bill? (therms): "))
 
-monthly_oil = float(input("What is your monthly oil bill?: "))
+yearly_propane_gas = float(input("What is your yearly propane gas bill? (gallons): "))
 
-total_yearly_mileage = float(input("What is your total yearly mileage on your vehicle?: "))
+yearly_oil = float(input("What is your yearly oil bill? (gallons): "))
+
+total_yearly_mileage = float(input("What is your total yearly mileage on your vehicle? (m): "))
+
+total_yearly_gallons = total_yearly_mileage / 25
 
 number_of_flights_less = float(input("How many flights have you taken in the past year (4 hours or less): "))
 
@@ -58,31 +62,39 @@ carbon_offset = 46.2971
 carbon_total = 0.0
 
 
-def electric(monthly_electric):
+def electric(yearly_electric):
     global carbon_total
-    monthly_electric = monthly_electric * 105
-    carbon_total = carbon_total + monthly_electric
+    yearly_electric = yearly_electric * 0.994
+    carbon_total = carbon_total + yearly_electric
     return carbon_total
 
 
-def gas(monthly_gas):
+def gas(yearly_natural_gas):
     global carbon_total
-    monthly_gas = monthly_gas * 105
-    carbon_total = carbon_total + monthly_gas
+    yearly_natural_gas = yearly_natural_gas * 11.7
+    carbon_total = carbon_total + yearly_natural_gas
     return carbon_total
 
 
-def oil(monthly_oil):
+def propane(yearly_propane_gas):
     global carbon_total
-    monthly_oil = monthly_oil * 113
-    carbon_total = carbon_total + monthly_oil
+    yearly_propane_gas = yearly_propane_gas * 13
+    carbon_total = carbon_total + yearly_propane_gas
     return carbon_total
 
 
-def yearly_mileage(total_yearly_mileage):
+def oil(yearly_oil):
     global carbon_total
-    total_yearly_mileage = total_yearly_mileage * 0.79
-    carbon_total = carbon_total + total_yearly_mileage
+    yearly_oil = yearly_oil * 19.6
+    carbon_total = carbon_total + yearly_oil
+    return carbon_total
+
+
+def yearly_mileage(total_yearly_gallons, total_yearly_mileage):
+    global carbon_total
+    total_fuel_usage = total_yearly_mileage / total_yearly_gallons
+    emission = total_fuel_usage * 19.6
+    carbon_total = carbon_total + emission
     return carbon_total
 
 
@@ -137,16 +149,19 @@ def total(carbon_total):
     # carbon_total = utility_bills + fuel + flights + recycle
 
 
-electric(monthly_electric)
+electric(yearly_electric)
 
 
-gas(monthly_gas)
+gas(yearly_natural_gas)
 
 
-oil(monthly_oil)
+propane(yearly_propane_gas)
 
 
-yearly_mileage(total_yearly_mileage)
+oil(yearly_oil)
+
+
+yearly_mileage(total_yearly_mileage, total_yearly_gallons)
 
 
 flights_less(number_of_flights_less)
