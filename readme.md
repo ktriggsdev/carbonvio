@@ -1,7 +1,6 @@
 # Carbonvio
 
-![My project copy-1 (2)](https://user-images.githubusercontent.com/127336461/230915070-cbf465cf-3ab4-4176-b061-0a9dc3be5f92.png)
-
+![My project copy-1 (4)](https://user-images.githubusercontent.com/127336461/230915561-cff70c5e-1ecc-4631-bd3e-9a5e3eea1984.png)
 
 ## About this project:
 
