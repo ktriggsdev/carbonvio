@@ -58,43 +58,50 @@ carbon_offset = 46.2971
 carbon_total = 0.0
 
 
-def electric(monthly_electric, carbon_total):
+def electric(monthly_electric):
+    global carbon_total
     monthly_electric = monthly_electric * 105
     carbon_total = carbon_total + monthly_electric
     return carbon_total
 
 
-def gas(monthly_gas, carbon_total):
+def gas(monthly_gas):
+    global carbon_total
     monthly_gas = monthly_gas * 105
     carbon_total = carbon_total + monthly_gas
     return carbon_total
 
 
-def oil(monthly_oil, carbon_total):
+def oil(monthly_oil):
+    global carbon_total
     monthly_oil = monthly_oil * 113
     carbon_total = carbon_total + monthly_oil
     return carbon_total
 
 
-def yearly_mileage(total_yearly_mileage, carbon_total):
+def yearly_mileage(total_yearly_mileage):
+    global carbon_total
     total_yearly_mileage = total_yearly_mileage * 0.79
     carbon_total = carbon_total + total_yearly_mileage
     return carbon_total
 
 
-def flights_less(number_of_flights_less, carbon_total):
+def flights_less(number_of_flights_less):
+    global carbon_total
     number_of_flights_less = number_of_flights_less * 1100
     carbon_total = carbon_total + number_of_flights_less
     return carbon_total
 
 
-def flights_more(number_of_flights_more, carbon_total):
+def flights_more(number_of_flights_more):
+    global carbon_total
     number_of_flights_more = number_of_flights_more * 4400
     carbon_total = carbon_total + number_of_flights_more
     return carbon_total
 
 
-def recycle_paper(recycle_newspaper, carbon_total):
+def recycle_paper(recycle_newspaper):
+    global carbon_total
     if recycle_newspaper == "y":
         carbon_total = carbon_total + 0
     elif recycle_newspaper == "n":
@@ -102,7 +109,8 @@ def recycle_paper(recycle_newspaper, carbon_total):
     return carbon_total
 
 
-def recycle_alu_tin(recycle_aluminium, carbon_total):
+def recycle_alu_tin(recycle_aluminium):
+    global carbon_total
     if recycle_aluminium == "y":
         carbon_total = carbon_total + 0
     elif recycle_aluminium == "n":
@@ -110,7 +118,9 @@ def recycle_alu_tin(recycle_aluminium, carbon_total):
     return carbon_total
 
 
-def trees_count(trees, carbon_offset, carbon_total):
+def trees_count(trees):
+    global carbon_offset
+    global carbon_total
     carbon_offset = carbon_offset * trees
     carbon_total = carbon_total - carbon_offset
     return carbon_total
@@ -127,39 +137,31 @@ def total(carbon_total):
     # carbon_total = utility_bills + fuel + flights + recycle
 
 
-electric(monthly_electric, carbon_total)
-print(carbon_total)
+electric(monthly_electric)
 
 
-gas(monthly_gas, carbon_total)
-print(gas(monthly_gas, carbon_total))
+gas(monthly_gas)
 
 
-oil(monthly_oil, carbon_total)
-print(oil(monthly_oil, carbon_total))
+oil(monthly_oil)
 
 
-yearly_mileage(total_yearly_mileage, carbon_total)
-print(yearly_mileage(total_yearly_mileage, carbon_total))
+yearly_mileage(total_yearly_mileage)
 
 
-flights_less(number_of_flights_less, carbon_total)
-print(flights_less(number_of_flights_less, carbon_total))
+flights_less(number_of_flights_less)
 
 
-flights_more(number_of_flights_more, carbon_total)
-print(flights_more(number_of_flights_more, carbon_total))
+flights_more(number_of_flights_more)
 
 
-recycle_paper(recycle_newspaper, carbon_total)
-print(recycle_paper(recycle_newspaper, carbon_total))
+recycle_paper(recycle_newspaper)
 
 
-recycle_alu_tin(recycle_aluminium, carbon_total)
-print(recycle_alu_tin(recycle_aluminium, carbon_total))
+recycle_alu_tin(recycle_aluminium)
 
 
-trees_count(trees, carbon_offset, carbon_total)
+trees_count(trees)
 
 
 total(carbon_total)
