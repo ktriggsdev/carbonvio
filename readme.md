@@ -1,5 +1,8 @@
 # Carbonvio
 
+![My project copy-1 (2)](https://user-images.githubusercontent.com/127336461/230915070-cbf465cf-3ab4-4176-b061-0a9dc3be5f92.png)
+
+
 ## About this project:
 
 Carbonvio is a project created by a small team of developers looking to solve the problem of global warming, this project was created for the European Developer Week Hackathon running from 10th April 2023 - 27th April 2023
@@ -13,3 +16,4 @@ We are looking to provide the following features:
 🚀 - Carbonvio will rank your carbon footprint among many others, **the lower the carbon footprint, the higher you will be on the leaderboard. rocket your way to the top!**
 
 🥇 - Carbonvio makes saving the planet fun by adding achievements and badges, such as achievements for **being a top ranking member on our leaderboard!** More achievements announced soon!
+
