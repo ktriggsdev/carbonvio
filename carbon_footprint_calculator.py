@@ -58,14 +58,14 @@ carbon_total = carbon_total + number_of_flights_less
 number_of_flights_more = number_of_flights_more * 4400
 carbon_total = carbon_total + number_of_flights_more
 
-if recycle_newspaper == "y":
+if recycle_newspaper == "Yes":
     carbon_total = carbon_total + 0
-elif recycle_newspaper == "n":
+elif recycle_newspaper == "No":
     carbon_total = carbon_total + 184
 
-if recycle_aluminium == "y":
+if recycle_aluminium == "Yes":
     carbon_total = carbon_total + 0
-elif recycle_aluminium == "n":
+elif recycle_aluminium == "No":
     carbon_total = carbon_total + 166
 
 carbon_offset = carbon_offset * trees
