@@ -5,7 +5,7 @@ import numpy as np
 file = 'img/carbonvio.png'
 st.image(file)
 
-st.header('Welcome to Carbonvio!')
+st.header('Welcome to Carbonvio!!')
 st.subheader('Utility usage:')
 yearly_electric = st.number_input('How many kwh of electricity do you use per year?: ', 0, 100000)
 yearly_electric = float(yearly_electric)
