@@ -16,7 +16,7 @@ yearly_propane_gas = float(yearly_propane_gas)
 yearly_oil = st.number_input('how many gallons of oil do you use per year for heating purposes?: ', 0, 100000)
 yearly_oil = float(yearly_oil)
 st.subheader('Transport:')
-total_yearly_mileage = st.number_input('how many miles have you done in your vehicle this year?: ', 0, 100000)
+total_yearly_mileage = st.number_input('how many miles have you done in your vehicle this year?: ', 1, 100000)
 total_yearly_mileage = float(total_yearly_mileage)
 total_yearly_gallons = total_yearly_mileage / 25
 total_yearly_gallons = float(total_yearly_gallons)
