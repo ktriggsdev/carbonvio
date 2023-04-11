@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 file = 'img/carbonvio.png'
-st.image(files)
+st.image(file)
 
 st.header('Welcome to Carbonvio!')
 st.subheader('Utility usage:')
