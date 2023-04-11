@@ -26,9 +26,9 @@ number_of_flights_more = st.number_input('How many flights have you taken this y
 number_of_flights_more = float(number_of_flights_more)
 st.subheader('Recycling')
 recycle_newspaper = st.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
-recycle_newspaper = recycle_newspaper.lower()
+#recycle_newspaper = recycle_newspaper.lower()
 recycle_aluminium = st.selectbox('Do you recycle aluminium and tin? (y/n): ', ['Yes', 'No'])
-recycle_aluminium = recycle_aluminium.lower()
+#recycle_aluminium = recycle_aluminium.lower()
 
 trees = st.number_input("how many trees have you planted this year?: ", 0, 1000)
 trees = float(trees)
