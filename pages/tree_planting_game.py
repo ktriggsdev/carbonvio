@@ -4,5 +4,8 @@ st.image(file)
 
 st.header('Download our educational game')
 
-game = 'game.txt'
-st.download_button('download', game)
+with open("game.txt", "rb") as file:
+    btn = st.download_button(
+            label="Download Game",
+            data=file,
+            file_name="game.txt")
