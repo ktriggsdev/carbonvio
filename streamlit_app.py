@@ -71,7 +71,7 @@ elif recycle_aluminium == "n":
 carbon_offset = carbon_offset * trees
 carbon_total = carbon_total - carbon_offset
 
-carbon_total = st.subheader(carbon_total)
+carbon_total = st.subheader(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 # def electric(yearly_electric):
 #     global carbon_total
 #     yearly_electric = yearly_electric * 0.994
