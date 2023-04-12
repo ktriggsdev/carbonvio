@@ -99,19 +99,24 @@ if yearly_electric > 2900:
         'Install a smart meter'
     ]
 
-    st.subheader('Tips to cut back on electricity usage:')
-    electricity_header = st.text('You are using too much electricity! '
-                                 'here are some ways to cut back on your usage: ')
+    electricity_bad = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
+                      'Tips to cut back on electricity usage:</p>'
+    st.markdown(electricity_bad, unsafe_allow_html=True)
+
+    electricity_sub_bad = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
+                          'You are using too much electricity! here are some ways to cut back on your usage: </p>'
+    st.markdown(electricity_sub_bad, unsafe_allow_html=True)
+    
     for item in electricity_tips:
         electricity_message = st.code(item)
 else:
-    electricity_header = '<h2 style="font-family:sans-serif; color: #9ef01a;">' \
+    electricity_good = '<h2 style="font-family:sans-serif; color: #9ef01a;">' \
                          'Electricity: Good </h2>'
-    st.markdown(electricity_header, unsafe_allow_html=True)
+    st.markdown(electricity_good, unsafe_allow_html=True)
 
-    electricity_subheader = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
-                            'You are using the recommended amount of electricity, good job!</p>'
-    st.markdown(electricity_subheader, unsafe_allow_html=True)
+    electricity_sub_good = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
+                           'You are using the recommended amount of electricity, good job!</p>'
+    st.markdown(electricity_sub_good, unsafe_allow_html=True)
 
 # def electric(yearly_electric):
 #     global carbon_total
