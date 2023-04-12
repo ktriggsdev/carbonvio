@@ -70,7 +70,7 @@ carbon_offset = carbon_offset * trees
 carbon_total = carbon_total - carbon_offset
 
 st.subheader('Your Carbon Footprint:')
-carbon_total = st.subheader(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
+carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 
 
 if yearly_electric > 2900:
