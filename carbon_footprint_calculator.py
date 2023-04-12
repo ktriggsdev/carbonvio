@@ -108,7 +108,7 @@ if yearly_electric > 2900:
     st.markdown(electricity_sub_bad, unsafe_allow_html=True)
 
     for item in electricity_tips:
-        electricity_message = st.code(item)
+        electricity_message = st.code(item).upper()
 else:
     electricity_good = '<h3 style="font-family:sans-serif; color: #9ef01a;">' \
                          'Electricity: Good </h3>'
