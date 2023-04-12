@@ -34,10 +34,6 @@ carbon_offset = 46.2971
 
 carbon_total = 0.0
 
-ESC = '\x1b'
-GREEN = ESC + '[10m'
-RED = ESC + '[9m'
-
 yearly_electric = yearly_electric * 0.994
 carbon_total = carbon_total + yearly_electric
 
