@@ -100,13 +100,17 @@ if yearly_electric > 2900:
     ]
 
     st.subheader('Tips to cut back on electricity usage:')
-    electricity_header = st.text(RED + 'You are using too much electricity! '
+    electricity_header = st.text('You are using too much electricity! '
                                  'here are some ways to cut back on your usage: ')
     for item in electricity_tips:
         electricity_message = st.code(item)
 else:
-    st.subheader(GREEN + 'Electricity: Good')
-    electricity_header = st.text(GREEN + 'You are using the recommended amount of electricity, good job!')
+    st.subheader('Electricity: Good')
+    electricity_header_one = st.text('You are using the recommended amount of electricity, good job!')
+
+    electricity_header = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
+                         'You are using the recommended amount of electricity, good job!</p>'
+    st.markdown(electricity_header, unsafe_allow_html=True)
 
 # def electric(yearly_electric):
 #     global carbon_total
