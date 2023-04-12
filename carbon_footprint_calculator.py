@@ -5,8 +5,7 @@ import numpy as np
 file = 'img/carbonvio.png'
 st.image(file)
 
-st.title('Carbonvio')
-st.header('Welcome to Carbonvio!')
+st.title('Welcome to Carbonvio!!')
 st.subheader('Utility usage:')
 yearly_electric = st.number_input('How many kwh of electricity do you use per year?: ', 0, 100000)
 yearly_electric = float(yearly_electric)
@@ -17,7 +16,7 @@ yearly_propane_gas = float(yearly_propane_gas)
 yearly_oil = st.number_input('how many gallons of oil do you use per year for heating purposes?: ', 0, 100000)
 yearly_oil = float(yearly_oil)
 st.subheader('Transport:')
-total_yearly_mileage = st.number_input('how many miles have you done in your vehicle this year?: ', 0, 100000)
+total_yearly_mileage = st.number_input('how many miles have you done in your vehicle this year?: ', 1, 100000)
 total_yearly_mileage = float(total_yearly_mileage)
 total_yearly_gallons = total_yearly_mileage / 25
 total_yearly_gallons = float(total_yearly_gallons)
@@ -27,15 +26,17 @@ number_of_flights_more = st.number_input('How many flights have you taken this y
 number_of_flights_more = float(number_of_flights_more)
 st.subheader('Recycling')
 recycle_newspaper = st.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
-recycle_newspaper = recycle_newspaper.lower()
 recycle_aluminium = st.selectbox('Do you recycle aluminium and tin? (y/n): ', ['Yes', 'No'])
-recycle_aluminium = recycle_aluminium.lower()
 
 trees = st.number_input("how many trees have you planted this year?: ", 0, 1000)
 trees = float(trees)
 carbon_offset = 46.2971
 
 carbon_total = 0.0
+
+ESC = '\x1b'
+GREEN = ESC + '[10m'
+RED = ESC + '[9m'
 
 yearly_electric = yearly_electric * 0.994
 carbon_total = carbon_total + yearly_electric
@@ -59,20 +60,65 @@ carbon_total = carbon_total + number_of_flights_less
 number_of_flights_more = number_of_flights_more * 4400
 carbon_total = carbon_total + number_of_flights_more
 
-if recycle_newspaper == "y":
+if recycle_newspaper == "Yes":
     carbon_total = carbon_total + 0
-elif recycle_newspaper == "n":
+elif recycle_newspaper == "No":
     carbon_total = carbon_total + 184
 
-if recycle_aluminium == "y":
+if recycle_aluminium == "Yes":
     carbon_total = carbon_total + 0
-elif recycle_aluminium == "n":
+elif recycle_aluminium == "No":
     carbon_total = carbon_total + 166
 
 carbon_offset = carbon_offset * trees
 carbon_total = carbon_total - carbon_offset
 
-carbon_total = st.text(carbon_total)
+st.subheader('Your Carbon Footprint:')
+carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
+
+
+if yearly_electric > 2900:
+    electricity_tips = [
+        'Consider an energy audit',
+        'unplug appliances you are not using such as toasters',
+        'use dimmer switches',
+        'Start Line Drying Laundry',
+        'Keep Your Fridge and Freezer Full',
+        'Install and Use Ceiling Fans to keep the cool air circulating',
+        'Turn Off Your Stove',
+        'Use LED Lighting',
+        'Wash and Dry Dishes by Hand',
+        'Turn Off Dishwasher Heat Dry',
+        'Insulate Loft and rest of Home',
+        'Insulate Electrical Outlets',
+        'Install Storm Doors',
+        'Plant trees around your home',
+        'Lower Your Hot Water Heater Temperature',
+        'Buy ENERGY STAR® Appliances',
+        'lower temperature for washing machine to 30, 20 or even 15 if your machine supports that',
+        'Do Only Full Laundry Loads',
+        'Install a smart meter'
+    ]
+
+    electricity_bad = '<h3 style="font-family:sans-serif; color: #ef233c;">' \
+                      'Tips to cut back on electricity usage:</h3>'
+    st.markdown(electricity_bad, unsafe_allow_html=True)
+
+    electricity_sub_bad = '<p style="font-family:sans-serif; color: #ef233c; font-size: 14px;">' \
+                          'You are using too much electricity! here are some ways to cut back on your usage: </p>'
+    st.markdown(electricity_sub_bad, unsafe_allow_html=True)
+
+    for item in electricity_tips:
+        electricity_message = st.code(item)
+else:
+    electricity_good = '<h3 style="font-family:sans-serif; color: #9ef01a;">' \
+                         'Electricity: Good </h3>'
+    st.markdown(electricity_good, unsafe_allow_html=True)
+
+    electricity_sub_good = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
+                           'You are using the recommended amount of electricity, good job!</p>'
+    st.markdown(electricity_sub_good, unsafe_allow_html=True)
+
 # def electric(yearly_electric):
 #     global carbon_total
 #     yearly_electric = yearly_electric * 0.994
