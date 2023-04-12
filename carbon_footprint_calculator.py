@@ -34,6 +34,10 @@ carbon_offset = 46.2971
 
 carbon_total = 0.0
 
+ESC = '\x1b'
+GREEN = ESC + '[10m'
+RED = ESC + '[9m'
+
 yearly_electric = yearly_electric * 0.994
 carbon_total = carbon_total + yearly_electric
 
@@ -96,13 +100,13 @@ if yearly_electric > 2900:
     ]
 
     st.subheader('Tips to cut back on electricity usage:')
-    electricity_header = st.text('You are using too much electricity! '
+    electricity_header = st.text(RED + 'You are using too much electricity! '
                                  'here are some ways to cut back on your usage: ')
     for item in electricity_tips:
         electricity_message = st.code(item)
 else:
-    st.subheader('Electricity: Good')
-    electricity_header = st.text('\033[38;5;16mYou are using the recommended amount of electricity, good job!', 'green')
+    st.subheader(GREEN + 'Electricity: Good')
+    electricity_header = st.text(GREEN + 'You are using the recommended amount of electricity, good job!')
 
 # def electric(yearly_electric):
 #     global carbon_total
