@@ -99,7 +99,7 @@ if yearly_electric > 2900:
     electricity_header = st.text('You are using too much electricity! '
                                  'here are some ways to cut back on your usage: ')
     for item in electricity_tips:
-        electricity_message = st.text(item)
+        electricity_message = st.code(item)
 else:
     st.subheader('Electricity: Good')
     electricity_header = st.text('You are using the recommended amount of electricity, good job!')
