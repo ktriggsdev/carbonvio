@@ -92,8 +92,11 @@ if yearly_electric > 2900:
         'Do Only Full Laundry Loads',
         'Install a smart meter'
     ]
-    electricity_header = st.text('You are using too much electricity, here are some ways to cut back on your usage: ')
+    electricity_header = st.subheader('You are using too much electricity! '
+                                      'here are some ways to cut back on your usage: ')
     electricity_message = st.text(electricity_tips)
+else:
+    electricity_header = st.subheader('You are using the recommended amount of electricity, good job!')
 
 # def electric(yearly_electric):
 #     global carbon_total
