@@ -5,7 +5,7 @@ import numpy as np
 file = 'img/carbonvio.png'
 st.image(file)
 
-st.header('Welcome to Carbonvio!!')
+st.title('Welcome to Carbonvio!!')
 st.subheader('Utility usage:')
 yearly_electric = st.number_input('How many kwh of electricity do you use per year?: ', 0, 100000)
 yearly_electric = float(yearly_electric)
@@ -69,7 +69,9 @@ elif recycle_aluminium == "No":
 carbon_offset = carbon_offset * trees
 carbon_total = carbon_total - carbon_offset
 
+st.subheader('Your Carbon Footprint:')
 carbon_total = st.subheader(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
+
 
 if yearly_electric > 2900:
     electricity_tips = [
@@ -92,10 +94,12 @@ if yearly_electric > 2900:
         'Do Only Full Laundry Loads',
         'Install a smart meter'
     ]
+    st.subheader('Tips to cut back on electricity usage:')
     electricity_header = st.subheader('You are using too much electricity! '
                                       'here are some ways to cut back on your usage: ')
     electricity_message = st.text(electricity_tips)
 else:
+    st.subheader('Electricity: Good')
     electricity_header = st.subheader('You are using the recommended amount of electricity, good job!')
 
 # def electric(yearly_electric):
