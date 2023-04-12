@@ -102,7 +102,7 @@ if yearly_electric > 2900:
         electricity_message = st.code(item)
 else:
     st.subheader('Electricity: Good')
-    electricity_header = st.text('You are using the recommended amount of electricity, good job!')
+    electricity_header = st.text('\033[38;5;16mYou are using the recommended amount of electricity, good job!', 'green')
 
 # def electric(yearly_electric):
 #     global carbon_total
