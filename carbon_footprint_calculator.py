@@ -105,12 +105,13 @@ if yearly_electric > 2900:
     for item in electricity_tips:
         electricity_message = st.code(item)
 else:
-    st.subheader('Electricity: Good')
-    electricity_header_one = st.text('You are using the recommended amount of electricity, good job!')
-
-    electricity_header = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
-                         'You are using the recommended amount of electricity, good job!</p>'
+    electricity_header = '<h2 style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
+                         'Electricity: Good</h2>'
     st.markdown(electricity_header, unsafe_allow_html=True)
+
+    electricity_subheader = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
+                            'You are using the recommended amount of electricity, good job!</p>'
+    st.markdown(electricity_subheader, unsafe_allow_html=True)
 
 # def electric(yearly_electric):
 #     global carbon_total
