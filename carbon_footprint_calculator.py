@@ -89,6 +89,7 @@ if yearly_electric > 2900:
         'Use LED Lighting',
         'Wash and Dry Dishes by Hand',
         'Turn Off Dishwasher Heat Dry',
+        'Insulate Loft and rest of Home',
         'Insulate Electrical Outlets',
         'Install Storm Doors',
         'Plant trees around your home',
