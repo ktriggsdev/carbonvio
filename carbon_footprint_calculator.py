@@ -26,9 +26,7 @@ number_of_flights_more = st.number_input('How many flights have you taken this y
 number_of_flights_more = float(number_of_flights_more)
 st.subheader('Recycling')
 recycle_newspaper = st.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
-#recycle_newspaper = recycle_newspaper.lower()
 recycle_aluminium = st.selectbox('Do you recycle aluminium and tin? (y/n): ', ['Yes', 'No'])
-#recycle_aluminium = recycle_aluminium.lower()
 
 trees = st.number_input("how many trees have you planted this year?: ", 0, 1000)
 trees = float(trees)
@@ -72,6 +70,31 @@ carbon_offset = carbon_offset * trees
 carbon_total = carbon_total - carbon_offset
 
 carbon_total = st.subheader(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
+
+if yearly_electric > 2900:
+    electricity_tips = [
+        'Consider an energy audit',
+        'unplug appliances you are not using such as toasters',
+        'use dimmer switches',
+        'Start Line Drying Laundry',
+        'Keep Your Fridge and Freezer Full',
+        'Install and Use Ceiling Fans to keep the cool air circulating',
+        'Turn Off Your Stove',
+        'Use LED Lighting',
+        'Wash and Dry Dishes by Hand',
+        'Turn Off Dishwasher Heat Dry',
+        'Insulate Electrical Outlets',
+        'Install Storm Doors',
+        'Plant trees around your home',
+        'Lower Your Hot Water Heater Temperature',
+        'Buy ENERGY STAR® Appliances',
+        'lower temperature for washing machine to 30, 20 or even 15 if your machine supports that',
+        'Do Only Full Laundry Loads',
+        'Install a smart meter'
+    ]
+    electricity_header = st.text('You are using too much electricity, here are some ways to cut back on your usage: ')
+    electricity_message = st.text(electricity_tips)
+
 # def electric(yearly_electric):
 #     global carbon_total
 #     yearly_electric = yearly_electric * 0.994
