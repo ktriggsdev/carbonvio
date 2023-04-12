@@ -99,19 +99,19 @@ if yearly_electric > 2900:
         'Install a smart meter'
     ]
 
-    electricity_bad = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
-                      'Tips to cut back on electricity usage:</p>'
+    electricity_bad = '<h3 style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
+                      'Tips to cut back on electricity usage:</h3>'
     st.markdown(electricity_bad, unsafe_allow_html=True)
 
     electricity_sub_bad = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
                           'You are using too much electricity! here are some ways to cut back on your usage: </p>'
     st.markdown(electricity_sub_bad, unsafe_allow_html=True)
-    
+
     for item in electricity_tips:
         electricity_message = st.code(item)
 else:
-    electricity_good = '<h2 style="font-family:sans-serif; color: #9ef01a;">' \
-                         'Electricity: Good </h2>'
+    electricity_good = '<h3 style="font-family:sans-serif; color: #9ef01a;">' \
+                         'Electricity: Good </h3>'
     st.markdown(electricity_good, unsafe_allow_html=True)
 
     electricity_sub_good = '<p style="font-family:sans-serif; color: #9ef01a; font-size: 14px;">' \
