@@ -99,7 +99,7 @@ if yearly_electric > 2900:
         'Install a smart meter'
     ]
 
-    electricity_bad = '<h3 style="font-family:sans-serif; color: #ef233c; font-size: 14px;">' \
+    electricity_bad = '<h3 style="font-family:sans-serif; color: #ef233c;">' \
                       'Tips to cut back on electricity usage:</h3>'
     st.markdown(electricity_bad, unsafe_allow_html=True)
 
