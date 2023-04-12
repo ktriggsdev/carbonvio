@@ -95,12 +95,12 @@ if yearly_electric > 2900:
         'Install a smart meter'
     ]
     st.subheader('Tips to cut back on electricity usage:')
-    electricity_header = st.subheader('You are using too much electricity! '
-                                      'here are some ways to cut back on your usage: ')
+    electricity_header = st.text('You are using too much electricity! '
+                                 'here are some ways to cut back on your usage: ')
     electricity_message = st.text(electricity_tips)
 else:
     st.subheader('Electricity: Good')
-    electricity_header = st.subheader('You are using the recommended amount of electricity, good job!')
+    electricity_header = st.text('You are using the recommended amount of electricity, good job!')
 
 # def electric(yearly_electric):
 #     global carbon_total
