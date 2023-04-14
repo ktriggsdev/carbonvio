@@ -303,7 +303,7 @@ if recycle_newspaper == 'No':
                             'here are some ways to increase your recycling habits: </p>'
     st.markdown(recycle_paper_sub_bad, unsafe_allow_html=True)
 
-    for item in recycle_newspaper:
+    for item in recycle_paper_tipsr:
         recycle_paper_message = st.code(item)
 else:
     recycle_paper_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
@@ -333,7 +333,7 @@ if recycle_aluminium == 'No':
                                 'here are some ways to increase your recycling habits: </p>'
     st.markdown(recycle_aluminium_sub_bad, unsafe_allow_html=True)
 
-    for item in recycle_aluminium:
+    for item in recycle_aluminium_tips:
         recycle_aluminium_message = st.code(item)
 else:
     recycle_aluminium_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
@@ -360,7 +360,7 @@ if carbon_offset < 138.8913:
                             'here are some ways to offset your carbon emissions: </p>'
     st.markdown(carbon_offset_sub_bad, unsafe_allow_html=True)
 
-    for item in range(int(carbon_offset)):
+    for item in carbon_offset_tips:
         carbon_offset_message = st.code(item)
 else:
     carbon_offset_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
