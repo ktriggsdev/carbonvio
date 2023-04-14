@@ -115,6 +115,55 @@ else:
                            'You are using the recommended amount of electricity, good job!</p>'
     st.markdown(electricity_sub_good, unsafe_allow_html=True)
 
+
+if yearly_natural_gas > 2900:
+    natural_gas_tips = [
+        'Consider an energy audit',
+        'Properly maintain heating systems',
+        'check air vents and remove any blockages',
+        'make your home air-tight'
+        'keep all vents open',
+        'keep windows and doors closed',
+        'seal any cracks',
+        'use good insulation',
+        'insulate your water heater',
+        'clean and replace air filters regularly',
+        'lower your thermostat',
+        'use a smart thermostat',
+        'use a humidifier',
+        'use a dehumidifier',
+        'use a space heater',
+        'wear extra layers such as a jumper',
+        'turn down your water heater',
+        'wash clothes in cold water',
+        'hang your clothes',
+        'use the dishwasher only when full',
+        'do not use the fireplace',
+        'install an attic tent',
+        'use other heat sources',
+        'use a timer',
+        'install a heat pump',
+        'use a drain water heat recovery system'
+    ]
+
+    nat_gas_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
+                  'Tips to cut back on natural gas usage:</h3>'
+    st.markdown(nat_gas_bad, unsafe_allow_html=True)
+
+    nat_gas_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+                      'You are using too much natural gas! here are some ways to cut back on your usage: </p>'
+    st.markdown(nat_gas_sub_bad, unsafe_allow_html=True)
+
+    for item in natural_gas_tips:
+        nat_gas_message = st.code(item)
+else:
+    nat_gas_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+                         'Natural Gas: Good </h3>'
+    st.markdown(nat_gas_good, unsafe_allow_html=True)
+
+    nat_gas_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+                       'You are using the recommended amount of natural gas, good job!</p>'
+    st.markdown(nat_gas_sub_good, unsafe_allow_html=True)
 # def electric(yearly_electric):
 #     global carbon_total
 #     yearly_electric = yearly_electric * 0.994
