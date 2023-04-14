@@ -241,7 +241,7 @@ if number_of_flights_less > 5:
     st.markdown(flights_less_bad, unsafe_allow_html=True)
 
     flights_less_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
-                           'You have a have been on a higher number of flights ' \
+                           'You have been on a higher number of flights ' \
                            '(less than 4 hours) than the average, ' \
                            'here are some ways to cut back on your mileage: </p>'
     st.markdown(flights_less_sub_bad, unsafe_allow_html=True)
