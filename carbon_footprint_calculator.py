@@ -7,13 +7,13 @@ st.image(file)
 
 st.title('Welcome to Carbonvio!')
 st.subheader('Utility usage:')
-yearly_electric = st.number_input('How many kwh of electricity do you use per year?: ', 0, 100000)
+yearly_electric = st.number_input('How many KWh of electricity do you use per year?: ', 0, 100000)
 yearly_electric = float(yearly_electric)
-yearly_natural_gas = st.number_input('How many therms of natural gas do you use per year?: ', 0, 100000)
+yearly_natural_gas = st.number_input('How many KWh of natural gas do you use per year?: ', 0, 100000)
 yearly_natural_gas = float(yearly_natural_gas)
-yearly_propane_gas = st.number_input('how many gallons of propane gas do you use per year?: ', 0, 100000)
+yearly_propane_gas = st.number_input('how many KWh of propane gas do you use per year?: ', 0, 100000)
 yearly_propane_gas = float(yearly_propane_gas)
-yearly_oil = st.number_input('how many gallons of oil do you use per year for heating purposes?: ', 0, 100000)
+yearly_oil = st.number_input('how many litres of oil do you use per year for heating purposes?: ', 0, 100000)
 yearly_oil = float(yearly_oil)
 st.subheader('Transport:')
 total_yearly_mileage = st.number_input('how many miles have you done in your vehicle this year?: ', 1, 100000)
@@ -116,7 +116,7 @@ else:
     st.markdown(electricity_sub_good, unsafe_allow_html=True)
 
 
-if yearly_natural_gas > 8000:
+if yearly_natural_gas > 12000 or yearly_propane_gas > 12000:
     natural_gas_tips = [
         'Consider an energy audit',
         'Properly maintain heating systems',
@@ -147,23 +147,60 @@ if yearly_natural_gas > 8000:
     ]
 
     nat_gas_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
-                  'Tips to cut back on natural gas usage:</h3>'
+                  'Tips to cut back on gas usage:</h3>'
     st.markdown(nat_gas_bad, unsafe_allow_html=True)
 
     nat_gas_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
-                      'You are using too much natural gas! here are some ways to cut back on your usage: </p>'
+                      'You are using too much gas! here are some ways to cut back on your usage: </p>'
     st.markdown(nat_gas_sub_bad, unsafe_allow_html=True)
 
     for item in natural_gas_tips:
         nat_gas_message = st.code(item)
 else:
     nat_gas_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
-                         'Natural Gas: Good </h3>'
+                         'Gas: Good </h3>'
     st.markdown(nat_gas_good, unsafe_allow_html=True)
 
     nat_gas_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
-                       'You are using the recommended amount of natural gas, good job!</p>'
+                       'You are using the recommended amount of gas, good job!</p>'
     st.markdown(nat_gas_sub_good, unsafe_allow_html=True)
+
+
+if yearly_oil > 2000:
+    oil_tips = [
+        'Consider an energy audit',
+        'Cut back on/regulate air conditioning and heat.',
+        'Eat and buy locally produced products',
+        'Try going vegetarian even if it is just on a monday',
+        'Do not buy bottled water',
+        'Cut back on plastic products',
+        'Recycle',
+        'Roll down car windows instead of using A/C',
+        'avoid standard candles, buy natural soy or beeswax candles.',
+        'cut back on processed / canned foods',
+        'eat organic if you cannot eat local',
+        'do your research on soap products to make sure they do not contain too much oil'
+    ]
+
+    oil_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
+              'Tips to cut back on oil usage:</h3>'
+    st.markdown(oil_bad, unsafe_allow_html=True)
+
+    nat_gas_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+                      'You are using too much oil! here are some ways to cut back on your usage: </p>'
+    st.markdown(nat_gas_sub_bad, unsafe_allow_html=True)
+
+    for item in oil_tips:
+        nat_gas_message = st.code(item)
+else:
+    oil_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+                         'Oil: Good </h3>'
+    st.markdown(oil_good, unsafe_allow_html=True)
+
+    oil_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+                   'You are using the recommended amount of oil, good job!</p>'
+    st.markdown(oil_sub_good, unsafe_allow_html=True)
+    
 # def electric(yearly_electric):
 #     global carbon_total
 #     yearly_electric = yearly_electric * 0.994
