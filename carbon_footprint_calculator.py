@@ -1,8 +1,4 @@
-import collections
-
 import streamlit as st
-import pandas as pd
-import numpy as np
 
 file = 'img/carbonvio.png'
 st.image(file)
@@ -230,7 +226,7 @@ else:
                        'You have an average or lower than average mileage, good job!</p>'
     st.markdown(mileage_sub_good, unsafe_allow_html=True)
 
-if number_of_flights_less > 6:
+if number_of_flights_less > 6 * 1100:
     flights_tips_less = [
         'Consider flying abroad less for holidays',
         'Consider whether it is better to fly for business trips, or take the bus, train or car'
@@ -258,7 +254,7 @@ else:
                             'good job!</p>'
     st.markdown(flights_less_sub_good, unsafe_allow_html=True)
 
-if number_of_flights_more > 3:
+if number_of_flights_more > 2 * 4400:
     flights_tips_more = [
         'Consider flying abroad less for holidays',
         'Consider whether it is better to fly for business trips, or take the bus, train or car',
