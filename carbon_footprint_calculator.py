@@ -223,7 +223,7 @@ if total_yearly_mileage > 2000:
         mileage_message = st.code(item)
 else:
     mileage_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
-               'Mileage: Good </h3>'
+                   'Mileage: Good </h3>'
     st.markdown(mileage_good, unsafe_allow_html=True)
 
     mileage_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
@@ -250,7 +250,7 @@ if number_of_flights_less > 5:
         flights_less_message = st.code(item)
 else:
     flights_less_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
-               'Flights (less than 4 hours): Good </h3>'
+                        'Flights (less than 4 hours): Good </h3>'
     st.markdown(flights_less_good, unsafe_allow_html=True)
 
     flights_less_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
