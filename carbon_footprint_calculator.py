@@ -1,3 +1,5 @@
+import collections
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -186,12 +188,12 @@ if yearly_oil > 2000:
               'Tips to cut back on oil usage:</h3>'
     st.markdown(oil_bad, unsafe_allow_html=True)
 
-    nat_gas_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
-                      'You are using too much oil! here are some ways to cut back on your usage: </p>'
-    st.markdown(nat_gas_sub_bad, unsafe_allow_html=True)
+    oil_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+                  'You are using too much oil! here are some ways to cut back on your usage: </p>'
+    st.markdown(oil_sub_bad, unsafe_allow_html=True)
 
     for item in oil_tips:
-        nat_gas_message = st.code(item)
+        oil_message = st.code(item)
 else:
     oil_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
                          'Oil: Good </h3>'
@@ -200,6 +202,175 @@ else:
     oil_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
                    'You are using the recommended amount of oil, good job!</p>'
     st.markdown(oil_sub_good, unsafe_allow_html=True)
+
+if total_yearly_mileage > 2000:
+    mileage_tips = [
+        'Consider eating and buying locally rather than travelling far',
+        'consider using an electric vehicle',
+        'do not travel far unless you need to',
+        'consider having localised holidays rather than ones far away'
+    ]
+
+    mileage_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
+                  'Tips to cut back on mileage:</h3>'
+    st.markdown(mileage_bad, unsafe_allow_html=True)
+
+    mileage_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+                      'You have a higher mileage than average, here are some ways to cut back on your mileage: </p>'
+    st.markdown(mileage_sub_bad, unsafe_allow_html=True)
+
+    for item in mileage_tips:
+        mileage_message = st.code(item)
+else:
+    mileage_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+               'Mileage: Good </h3>'
+    st.markdown(mileage_good, unsafe_allow_html=True)
+
+    mileage_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+                       'You have an average or lower than average mileage, good job!</p>'
+    st.markdown(mileage_sub_good, unsafe_allow_html=True)
+
+if number_of_flights_less > 5:
+    flights_tips_less = [
+        'Consider flying abroad less for holidays',
+        'Consider whether it is better to fly for business trips, or take the bus, train or car'
+    ]
+
+    flights_less_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
+                       'Tips to cut back on flights less than 4 hours:</h3>'
+    st.markdown(flights_less_bad, unsafe_allow_html=True)
+
+    flights_less_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+                           'You have a have been on a higher number of flights ' \
+                           '(less than 4 hours) than the average, ' \
+                           'here are some ways to cut back on your mileage: </p>'
+    st.markdown(flights_less_sub_bad, unsafe_allow_html=True)
+
+    for item in flights_tips_less:
+        flights_less_message = st.code(item)
+else:
+    flights_less_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+               'Flights (less than 4 hours): Good </h3>'
+    st.markdown(flights_less_good, unsafe_allow_html=True)
+
+    flights_less_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+                            'You have an average or lower than average number of flights (less than 4 hours), ' \
+                            'good job!</p>'
+    st.markdown(flights_less_sub_good, unsafe_allow_html=True)
+
+if number_of_flights_more > 2:
+    flights_tips_more = [
+        'Consider flying abroad less for holidays',
+        'Consider whether it is better to fly for business trips, or take the bus, train or car',
+        'Consider flights that are less than 4 hours long'
+    ]
+
+    flights_more_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
+                       'Tips to cut back on flights more than 4 hours:</h3>'
+    st.markdown(flights_more_bad, unsafe_allow_html=True)
+
+    flights_more_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+                           'You have a have been on a higher number of flights ' \
+                           '(more than 4 hours) than the average, ' \
+                           'here are some ways to cut back on your mileage: </p>'
+    st.markdown(flights_more_sub_bad, unsafe_allow_html=True)
+
+    for item in flights_tips_more:
+        flights_more_message = st.code(item)
+else:
+    flights_more_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+                        'Flights (more than 4 hours): Good </h3>'
+    st.markdown(flights_more_good, unsafe_allow_html=True)
+
+    flights_more_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+                            'You have an average or lower than average number of flights (more than 4 hours), ' \
+                            'good job!</p>'
+    st.markdown(flights_more_sub_good, unsafe_allow_html=True)
+
+if recycle_newspaper == 'No':
+    recycle_paper_tips = [
+        'consider recycling newspaper',
+        'consider recycling paper',
+        'consider recycling cardboard'
+    ]
+
+    recycle_paper_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
+                        'Tips for recycling paper:</h3>'
+    st.markdown(recycle_paper_bad, unsafe_allow_html=True)
+
+    recycle_paper_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+                            'You do not recycle paper items such as cardboard, newspaper, paper, letters' \
+                            'here are some ways to increase your recycling habits: </p>'
+    st.markdown(recycle_paper_sub_bad, unsafe_allow_html=True)
+
+    for item in recycle_newspaper:
+        recycle_paper_message = st.code(item)
+else:
+    recycle_paper_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+                        'Recycling Paper: Good </h3>'
+    st.markdown(recycle_paper_good, unsafe_allow_html=True)
+
+    recycle_paper_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+                             'You recycle paper items such as newspaper, paper, letters, cardboard, ' \
+                             'good job!</p>'
+    st.markdown(recycle_paper_sub_good, unsafe_allow_html=True)
+
+
+if recycle_aluminium == 'No':
+    recycle_aluminium_tips = [
+        'consider recycling tins',
+        'consider recycling any items that contain aluminium',
+        'consider recycling foil'
+    ]
+
+    recycle_aluminium_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
+                            'Tips for recycling aluminium and tin:</h3>'
+    st.markdown(recycle_aluminium_bad, unsafe_allow_html=True)
+
+    recycle_aluminium_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+                                'You do not recycle aluminium or tin items such as tins, foil, ' \
+                                'products containing aluminium' \
+                                'here are some ways to increase your recycling habits: </p>'
+    st.markdown(recycle_aluminium_sub_bad, unsafe_allow_html=True)
+
+    for item in recycle_aluminium:
+        recycle_aluminium_message = st.code(item)
+else:
+    recycle_aluminium_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+                             'Recycling Aluminium: Good </h3>'
+    st.markdown(recycle_aluminium_good, unsafe_allow_html=True)
+
+    recycle_aluminium_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+                                 'You recycle aluminium and tin items such as tins, foil, ' \
+                                 'products containing aluminium ' \
+                                 'good job!</p>'
+    st.markdown(recycle_aluminium_sub_good, unsafe_allow_html=True)
+
+if carbon_offset < 138.8913:
+    carbon_offset_tips = [
+        'plant more trees or flowers'
+    ]
+
+    carbon_offset_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
+                        'Tips for carbon offsetting:</h3>'
+    st.markdown(carbon_offset_bad, unsafe_allow_html=True)
+
+    carbon_offset_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+                            'You do not plant enough trees to offset your carbon emissions' \
+                            'here are some ways to offset your carbon emissions: </p>'
+    st.markdown(carbon_offset_sub_bad, unsafe_allow_html=True)
+
+    for item in range(int(carbon_offset)):
+        carbon_offset_message = st.code(item)
+else:
+    carbon_offset_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+                             'carbon offset: Good </h3>'
+    st.markdown(carbon_offset_good, unsafe_allow_html=True)
+
+    carbon_offset_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+                             'You plant the average number of trees to offset your emissions' \
+                             'good job!</p>'
+    st.markdown(carbon_offset_sub_good, unsafe_allow_html=True)
     
 # def electric(yearly_electric):
 #     global carbon_total
