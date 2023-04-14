@@ -303,7 +303,7 @@ if recycle_newspaper == 'No':
                             'here are some ways to increase your recycling habits: </p>'
     st.markdown(recycle_paper_sub_bad, unsafe_allow_html=True)
 
-    for item in recycle_paper_tipsr:
+    for item in recycle_paper_tips:
         recycle_paper_message = st.code(item)
 else:
     recycle_paper_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
