@@ -116,7 +116,7 @@ else:
     st.markdown(electricity_sub_good, unsafe_allow_html=True)
 
 
-if yearly_natural_gas > 2900:
+if yearly_natural_gas > 8000:
     natural_gas_tips = [
         'Consider an energy audit',
         'Properly maintain heating systems',
