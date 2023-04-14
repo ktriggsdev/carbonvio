@@ -203,7 +203,7 @@ else:
                    'You are using the recommended amount of oil, good job!</p>'
     st.markdown(oil_sub_good, unsafe_allow_html=True)
 
-if total_yearly_mileage > 2000:
+if total_yearly_mileage > 5920:
     mileage_tips = [
         'Consider eating and buying locally rather than travelling far',
         'consider using an electric vehicle',
@@ -230,7 +230,7 @@ else:
                        'You have an average or lower than average mileage, good job!</p>'
     st.markdown(mileage_sub_good, unsafe_allow_html=True)
 
-if number_of_flights_less > 5:
+if number_of_flights_less > 6:
     flights_tips_less = [
         'Consider flying abroad less for holidays',
         'Consider whether it is better to fly for business trips, or take the bus, train or car'
@@ -258,7 +258,7 @@ else:
                             'good job!</p>'
     st.markdown(flights_less_sub_good, unsafe_allow_html=True)
 
-if number_of_flights_more > 2:
+if number_of_flights_more > 3:
     flights_tips_more = [
         'Consider flying abroad less for holidays',
         'Consider whether it is better to fly for business trips, or take the bus, train or car',
