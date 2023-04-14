@@ -369,9 +369,9 @@ else:
 
     carbon_offset_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
                              'You plant the average number of trees to offset your emissions' \
-                             'good job!</p>'
+                             ' good job!</p>'
     st.markdown(carbon_offset_sub_good, unsafe_allow_html=True)
-    
+
 # def electric(yearly_electric):
 #     global carbon_total
 #     yearly_electric = yearly_electric * 0.994
