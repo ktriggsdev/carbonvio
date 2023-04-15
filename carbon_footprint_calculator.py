@@ -131,14 +131,6 @@ if yearly_electric > 2900:
         'Do Only Full Laundry Loads',
         'Install a smart meter'
     ]
-
-#     electricity_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
-#                       'Tips to cut back on electricity usage:</h3>'
-#     st.markdown(electricity_bad, unsafe_allow_html=True)
-
-#     electricity_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
-#                           'You are using too much electricity! here are some ways to cut back on your usage: </p>'
-#     st.markdown(electricity_sub_bad, unsafe_allow_html=True)
     
     with st.expander('You are using too much electricity! here are some ways to cut back on your usage:'):
    
@@ -147,13 +139,6 @@ if yearly_electric > 2900:
 else:
     with st.expander('Electricity: Good!'):
         st.success('You are using the recommended amount of electricity, good job!')
-#     electricity_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
-#                          'Electricity: Good </h3>'
-#     st.markdown(electricity_good, unsafe_allow_html=True)
-
-#     electricity_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
-#                            'You are using the recommended amount of electricity, good job!</p>'
-#     st.markdown(electricity_sub_good, unsafe_allow_html=True)
 
 
 if yearly_natural_gas > 12000 or yearly_propane_gas > 12000:
@@ -185,26 +170,13 @@ if yearly_natural_gas > 12000 or yearly_propane_gas > 12000:
         'install a heat pump',
         'use a drain water heat recovery system'
     ]
-
-    nat_gas_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
-                  'Tips to cut back on gas usage:</h3>'
-    st.markdown(nat_gas_bad, unsafe_allow_html=True)
-
-    nat_gas_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
-                      'You are using too much gas! here are some ways to cut back on your usage: </p>'
-    st.markdown(nat_gas_sub_bad, unsafe_allow_html=True)
-
+    with st.expander('You are using too much gas! here are some ways to cut back on your usage:'):
+   
     for item in natural_gas_tips:
-        nat_gas_message = st.code(item)
+        nat_gas_message = st.error(item)
 else:
-    nat_gas_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
-                         'Gas: Good </h3>'
-    st.markdown(nat_gas_good, unsafe_allow_html=True)
-
-    nat_gas_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
-                       'You are using the recommended amount of gas, good job!</p>'
-    st.markdown(nat_gas_sub_good, unsafe_allow_html=True)
-
+    with st.expander('Gas: Good!'):
+        st.success('You are using the recommended amount of gas, good job!')
 
 if yearly_oil > 2000:
     oil_tips = [
