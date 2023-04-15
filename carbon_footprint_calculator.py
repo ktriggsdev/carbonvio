@@ -145,13 +145,15 @@ if yearly_electric > 2900:
         for item in electricity_tips:
             electricity_message = st.error(item)
 else:
-    electricity_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
-                         'Electricity: Good </h3>'
-    st.markdown(electricity_good, unsafe_allow_html=True)
+    with st.expander('Electricity: Good!'):
+        st.success('You are using the recommended amount of electricity, good job!)
+#     electricity_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
+#                          'Electricity: Good </h3>'
+#     st.markdown(electricity_good, unsafe_allow_html=True)
 
-    electricity_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
-                           'You are using the recommended amount of electricity, good job!</p>'
-    st.markdown(electricity_sub_good, unsafe_allow_html=True)
+#     electricity_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
+#                            'You are using the recommended amount of electricity, good job!</p>'
+#     st.markdown(electricity_sub_good, unsafe_allow_html=True)
 
 
 if yearly_natural_gas > 12000 or yearly_propane_gas > 12000:
