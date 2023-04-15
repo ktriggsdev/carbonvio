@@ -231,12 +231,14 @@ if number_of_flights_less > 6 * 1100:
 #                            '(less than 4 hours) than the average, ' \
 #                            'here are some ways to cut back on your mileage: </p>'
 #     st.markdown(flights_less_sub_bad, unsafe_allow_html=True)
-    with st.expander('You have been on a higher number of flights (less than 4 hours) than the average here are some ways to cut back on your mileage:')
+    with st.expander('You have been on a higher number of flights (less than 4 hours) than' +
+                     ' the average here are some ways to cut back on your mileage:')
         for item in flights_tips_less:
             flights_less_message = st.error(item)
 else:
     with st.expander('Flights (less than 4 hours): Good!')
-        st.success('You have an average or lower than average number of flights (less than 4 hours), Good Job!')
+        st.success('You have an average or lower than average number of flights (less than 4 hours)'+
+                   ', Good Job!')
 #     flights_less_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
 #                         'Flights (less than 4 hours): Good </h3>'
 #     st.markdown(flights_less_good, unsafe_allow_html=True)
