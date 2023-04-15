@@ -172,8 +172,8 @@ if yearly_natural_gas > 12000 or yearly_propane_gas > 12000:
     ]
     with st.expander('You are using too much gas! here are some ways to cut back on your usage:'):
    
-    for item in natural_gas_tips:
-        nat_gas_message = st.error(item)
+        for item in natural_gas_tips:
+            nat_gas_message = st.error(item)
 else:
     with st.expander('Gas: Good!'):
         st.success('You are using the recommended amount of gas, good job!')
