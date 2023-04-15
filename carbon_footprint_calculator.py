@@ -1,5 +1,6 @@
 import streamlit as st
 
+st.set_page_config(page_title='Carbonvio')
 file = 'img/carbonvio.png'
 st.image(file)
 st.title('Welcome to Carbonvio!')
