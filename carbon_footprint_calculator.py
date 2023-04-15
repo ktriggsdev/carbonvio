@@ -11,7 +11,7 @@ st.set_page_config(
     })
 if st.session_state.theme == "light":
     st.image(file_2)
-elif st.session_state.theme == "Dark":
+elif st.session_state.theme == "dark":
     st.image(file)
 else: 
     st.image(file)
