@@ -3,7 +3,7 @@ import streamlit as st
 file = 'img/carbonvio.png'
 st.set_page_config(
     page_title='Carbonvio', 
-    page_icon = st.image(file),
+    page_icon = 'img/carbonvio.png',
     menu_items={
         'Report a bug': "https://github.com/ktriggsdev/carbonvio/issues"
     })
