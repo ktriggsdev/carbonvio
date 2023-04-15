@@ -209,7 +209,8 @@ if total_yearly_mileage > 5920:
         'consider having localised holidays rather than ones far away'
     ]
     
-    with st.expander('You have a higher mileage than average, here are some ways to cut back on your mileage:')
+    with st.expander('You have a higher mileage than average,'  + 
+                     ' here are some ways to cut back on your mileage:')
         for item in mileage_tips:
             mileage_message = st.error(item)
 else:
