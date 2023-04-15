@@ -275,7 +275,7 @@ if recycle_newspaper == 'No':
 else:
     with st.expander('Recycling Paper: Good!'):
         st.success('You recycle paper items such as newspaper, paper, letters, cardboard, ' +
-                   'good job!)
+                   'good job!')
 
 # recycling aluminium and tin
 if recycle_aluminium == 'No':
