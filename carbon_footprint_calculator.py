@@ -208,25 +208,13 @@ if total_yearly_mileage > 5920:
         'do not travel far unless you need to',
         'consider having localised holidays rather than ones far away'
     ]
-
-    mileage_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
-                  'Tips to cut back on mileage:</h3>'
-    st.markdown(mileage_bad, unsafe_allow_html=True)
-
-    mileage_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
-                      'You have a higher mileage than average, here are some ways to cut back on your mileage: </p>'
-    st.markdown(mileage_sub_bad, unsafe_allow_html=True)
-
-    for item in mileage_tips:
-        mileage_message = st.code(item)
+    
+    with st.expander('You have a higher mileage than average, here are some ways to cut back on your mileage:')
+        for item in mileage_tips:
+            mileage_message = st.error(item)
 else:
-    mileage_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
-                   'Mileage: Good </h3>'
-    st.markdown(mileage_good, unsafe_allow_html=True)
-
-    mileage_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
-                       'You have an average or lower than average mileage, good job!</p>'
-    st.markdown(mileage_sub_good, unsafe_allow_html=True)
+    with st.expander('Mileage: Good!')
+        st.success('You have an average or lower than average mileage, good job!')
 
 if number_of_flights_less > 6 * 1100:
     flights_tips_less = [
@@ -234,27 +222,29 @@ if number_of_flights_less > 6 * 1100:
         'Consider whether it is better to fly for business trips, or take the bus, train or car'
     ]
 
-    flights_less_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
-                       'Tips to cut back on flights less than 4 hours:</h3>'
-    st.markdown(flights_less_bad, unsafe_allow_html=True)
+#     flights_less_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
+#                        'Tips to cut back on flights less than 4 hours:</h3>'
+#     st.markdown(flights_less_bad, unsafe_allow_html=True)
 
-    flights_less_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
-                           'You have been on a higher number of flights ' \
-                           '(less than 4 hours) than the average, ' \
-                           'here are some ways to cut back on your mileage: </p>'
-    st.markdown(flights_less_sub_bad, unsafe_allow_html=True)
-
-    for item in flights_tips_less:
-        flights_less_message = st.code(item)
+#     flights_less_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
+#                            'You have been on a higher number of flights ' \
+#                            '(less than 4 hours) than the average, ' \
+#                            'here are some ways to cut back on your mileage: </p>'
+#     st.markdown(flights_less_sub_bad, unsafe_allow_html=True)
+    with st.expander('You have been on a higher number of flights (less than 4 hours) than the average here are some ways to cut back on your mileage:')
+        for item in flights_tips_less:
+            flights_less_message = st.error(item)
 else:
-    flights_less_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
-                        'Flights (less than 4 hours): Good </h3>'
-    st.markdown(flights_less_good, unsafe_allow_html=True)
+    with st.expander('Flights (less than 4 hours): Good!')
+        st.success('You have an average or lower than average number of flights (less than 4 hours), Good Job!')
+#     flights_less_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
+#                         'Flights (less than 4 hours): Good </h3>'
+#     st.markdown(flights_less_good, unsafe_allow_html=True)
 
-    flights_less_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
-                            'You have an average or lower than average number of flights (less than 4 hours), ' \
-                            'good job!</p>'
-    st.markdown(flights_less_sub_good, unsafe_allow_html=True)
+#     flights_less_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
+#                             'You have an average or lower than average number of flights (less than 4 hours), ' \
+#                             'good job!</p>'
+#     st.markdown(flights_less_sub_good, unsafe_allow_html=True)
 
 if number_of_flights_more > 2 * 4400:
     flights_tips_more = [
