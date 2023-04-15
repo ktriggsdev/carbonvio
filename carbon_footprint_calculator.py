@@ -6,6 +6,7 @@ st.set_page_config(
     page_icon = 'img/carbonvio.ico',
     menu_items={
         'Report a bug': "https://github.com/ktriggsdev/carbonvio/issues"
+        'About': "#Carbonvio. A carbon footprint calculator with a difference."
     })
 st.image(file)
 st.title('Welcome to Carbonvio!')
