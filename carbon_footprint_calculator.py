@@ -1,6 +1,7 @@
 import streamlit as st
 
 file = 'img/carbonvio.png'
+file_2 = 'img/carbonvio-l.png'
 st.set_page_config(
     page_title='Carbonvio', 
     page_icon = 'img/carbonvio.ico',
@@ -8,7 +9,13 @@ st.set_page_config(
         'Report a bug': "https://github.com/ktriggsdev/carbonvio/issues",
         'About': "Carbonvio, A carbon footprint calculator with a difference."
     })
-st.image(file)
+if st.session_state.theme == "light":
+    st.image(file_2)
+elif st.session_state.theme == "Dark":
+    st.image(file)
+else: 
+    st.image(file)
+    
 st.title('Welcome to Carbonvio!')
 metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
 if metric_imperial == 'Metric':
