@@ -1,7 +1,6 @@
 import streamlit as st
 
 file = 'img/carbonvio.png'
-file_two = 'img/carbonvio-l.png'
 st.set_page_config(
     page_title='Carbonvio', 
     page_icon = 'img/carbonvio.ico',
@@ -9,7 +8,7 @@ st.set_page_config(
         'Report a bug': "https://github.com/ktriggsdev/carbonvio/issues",
         'About': "Carbonvio, A carbon footprint calculator with a difference."
     })
-st.image(file_two)
+st.image(file)
     
 st.title('Welcome to Carbonvio!')
 metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
@@ -406,114 +405,3 @@ else:
                              'You plant the average number of trees to offset your emissions' \
                              ' good job!</p>'
     st.markdown(carbon_offset_sub_good, unsafe_allow_html=True)
-
-# def electric(yearly_electric):
-#     global carbon_total
-#     yearly_electric = yearly_electric * 0.994
-#     carbon_total = carbon_total + yearly_electric
-#     return carbon_total
-#
-#
-# def gas(yearly_natural_gas):
-#     global carbon_total
-#     yearly_natural_gas = yearly_natural_gas * 11.7
-#     carbon_total = carbon_total + yearly_natural_gas
-#     return carbon_total
-#
-#
-# def propane(yearly_propane_gas):
-#     global carbon_total
-#     yearly_propane_gas = yearly_propane_gas * 13
-#     carbon_total = carbon_total + yearly_propane_gas
-#     return carbon_total
-#
-#
-# def oil(yearly_oil):
-#     global carbon_total
-#     yearly_oil = yearly_oil * 19.6
-#     carbon_total = carbon_total + yearly_oil
-#     return carbon_total
-#
-#
-# def yearly_mileage(total_yearly_gallons, total_yearly_mileage):
-#     global carbon_total
-#     total_fuel_usage = total_yearly_mileage / total_yearly_gallons
-#     emission = total_fuel_usage * 19.6
-#     carbon_total = carbon_total + emission
-#     return carbon_total
-#
-#
-# def flights_less(number_of_flights_less):
-#     global carbon_total
-#     number_of_flights_less = number_of_flights_less * 1100
-#     carbon_total = carbon_total + number_of_flights_less
-#     return carbon_total
-#
-#
-# def flights_more(number_of_flights_more):
-#     global carbon_total
-#     number_of_flights_more = number_of_flights_more * 4400
-#     carbon_total = carbon_total + number_of_flights_more
-#     return carbon_total
-#
-#
-# def recycle_paper(recycle_newspaper):
-#     global carbon_total
-#     if recycle_newspaper == "y":
-#         carbon_total = carbon_total + 0
-#     elif recycle_newspaper == "n":
-#         carbon_total = carbon_total + 184
-#     return carbon_total
-#
-#
-# def recycle_alu_tin(recycle_aluminium):
-#     global carbon_total
-#     if recycle_aluminium == "y":
-#         carbon_total = carbon_total + 0
-#     elif recycle_aluminium == "n":
-#         carbon_total = carbon_total + 166
-#     return carbon_total
-#
-#
-# def trees_count(trees):
-#     global carbon_total
-#     global carbon_offset
-#     carbon_offset = carbon_offset * trees
-#     carbon_total = carbon_total - carbon_offset
-#     return carbon_total
-#
-#
-#
-#
-#
-# electric(yearly_electric)
-#
-#
-# gas(yearly_natural_gas)
-#
-#
-# propane(yearly_propane_gas)
-#
-#
-# oil(yearly_oil)
-#
-#
-# yearly_mileage(total_yearly_mileage, total_yearly_gallons)
-#
-#
-# flights_less(number_of_flights_less)
-#
-#
-# flights_more(number_of_flights_more)
-#
-#
-# recycle_paper(recycle_newspaper)
-#
-#
-# recycle_alu_tin(recycle_aluminium)
-#
-#
-# trees_count(trees)
-#
-#
-# carbon_total = st.text(carbon_total)
