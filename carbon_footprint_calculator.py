@@ -140,7 +140,7 @@ if yearly_electric > 2900:
 #                           'You are using too much electricity! here are some ways to cut back on your usage: </p>'
 #     st.markdown(electricity_sub_bad, unsafe_allow_html=True)
     
-    with st.expander(st.warning('You are using too much electricity! here are some ways to cut back on your usage:')):
+    with st.expander('You are using too much electricity! here are some ways to cut back on your usage:'):
    
         for item in electricity_tips:
             electricity_message = st.error(item)
