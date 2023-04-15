@@ -193,25 +193,13 @@ if yearly_oil > 2000:
         'eat organic if you cannot eat local',
         'do your research on soap products to make sure they do not contain too much oil'
     ]
-
-    oil_bad = '<h3 style="font-family:monospace; color: #ef233c;">' \
-              'Tips to cut back on oil usage:</h3>'
-    st.markdown(oil_bad, unsafe_allow_html=True)
-
-    oil_sub_bad = '<p style="font-family:monospace; color: #ef233c; font-size: 14px;">' \
-                  'You are using too much oil! here are some ways to cut back on your usage: </p>'
-    st.markdown(oil_sub_bad, unsafe_allow_html=True)
-
-    for item in oil_tips:
-        oil_message = st.code(item)
+    
+    with st.expander('You are using too much oil! here are some ways to cut back on your usage:'):
+        for item in oil_tips:
+            oil_message = st.error(item)
 else:
-    oil_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
-                         'Oil: Good </h3>'
-    st.markdown(oil_good, unsafe_allow_html=True)
-
-    oil_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
-                   'You are using the recommended amount of oil, good job!</p>'
-    st.markdown(oil_sub_good, unsafe_allow_html=True)
+    with st.expander('Oil: Good!'):
+        st.success('You are using the recommended amount of oil, good job!')
 
 if total_yearly_mileage > 5920:
     mileage_tips = [
