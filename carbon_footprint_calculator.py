@@ -9,8 +9,8 @@ st.set_page_config(
         'Report a bug': "https://github.com/ktriggsdev/carbonvio/issues",
         'About': "Carbonvio, A carbon footprint calculator with a difference."
     })
-if st.session_state.theme == "light": st.image(file_two)
-elif st.session_state.theme == "dark": st.image(file)
+if st.session_state.theme == "Light": st.image(file_two)
+elif st.session_state.theme == "Dark": st.image(file)
 else: st.image(file)
     
 st.title('Welcome to Carbonvio!')
