@@ -1,7 +1,7 @@
 import streamlit as st
 
 file = 'img/carbonvio.png'
-file_2 = 'img/carbonvio-l.png'
+file_two = 'img/carbonvio-l.png'
 st.set_page_config(
     page_title='Carbonvio', 
     page_icon = 'img/carbonvio.ico',
@@ -10,7 +10,7 @@ st.set_page_config(
         'About': "Carbonvio, A carbon footprint calculator with a difference."
     })
 if st.session_state.theme == "light":
-    st.image(file_2)
+    st.image(file_two)
 elif st.session_state.theme == "dark":
     st.image(file)
 else: 
