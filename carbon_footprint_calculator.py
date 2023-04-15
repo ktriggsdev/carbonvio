@@ -1,7 +1,12 @@
 import streamlit as st
 
-st.set_page_config(page_title='Carbonvio')
 file = 'img/carbonvio.png'
+st.set_page_config(
+    page_title='Carbonvio', 
+    page_icon = st.image(file),
+    menu_items={
+        'Report a bug': "https://github.com/ktriggsdev/carbonvio/issues"
+    })
 st.image(file)
 st.title('Welcome to Carbonvio!')
 metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
