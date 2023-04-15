@@ -210,11 +210,11 @@ if total_yearly_mileage > 5920:
     ]
     
     with st.expander('You have a higher mileage than average,' + 
-                     ' here are some ways to cut back on your mileage:')
+                     ' here are some ways to cut back on your mileage:'):
         for item in mileage_tips:
             mileage_message = st.error(item)
 else:
-    with st.expander('Mileage: Good!')
+    with st.expander('Mileage: Good!'):
         st.success('You have an average or lower than average mileage, good job!')
 
 if number_of_flights_less > 6 * 1100:
@@ -233,11 +233,11 @@ if number_of_flights_less > 6 * 1100:
 #                            'here are some ways to cut back on your mileage: </p>'
 #     st.markdown(flights_less_sub_bad, unsafe_allow_html=True)
     with st.expander('You have been on a higher number of flights (less than 4 hours) than' +
-                     ' the average here are some ways to cut back on your mileage:')
+                     ' the average here are some ways to cut back on your flights:'):
         for item in flights_tips_less:
             flights_less_message = st.error(item)
 else:
-    with st.expander('Flights (less than 4 hours): Good!')
+    with st.expander('Flights (less than 4 hours): Good!'):
         st.success('You have an average or lower than average number of flights (less than 4 hours)'+
                    ', Good Job!')
 #     flights_less_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
