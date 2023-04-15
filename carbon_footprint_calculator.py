@@ -1,8 +1,15 @@
 import streamlit as st
 
-st.set_page_config(page_title='Carbonvio')
 file = 'img/carbonvio.png'
+st.set_page_config(
+    page_title='Carbonvio', 
+    page_icon = 'img/carbonvio.ico',
+    menu_items={
+        'Report a bug': "https://github.com/ktriggsdev/carbonvio/issues",
+        'About': "Carbonvio, A carbon footprint calculator with a difference."
+    })
 st.image(file)
+    
 st.title('Welcome to Carbonvio!')
 metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
 if metric_imperial == 'Metric':
@@ -136,11 +143,11 @@ if yearly_electric > 2900:
     for item in electricity_tips:
         electricity_message = st.code(item)
 else:
-    electricity_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+    electricity_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
                          'Electricity: Good </h3>'
     st.markdown(electricity_good, unsafe_allow_html=True)
 
-    electricity_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+    electricity_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
                            'You are using the recommended amount of electricity, good job!</p>'
     st.markdown(electricity_sub_good, unsafe_allow_html=True)
 
@@ -186,11 +193,11 @@ if yearly_natural_gas > 12000 or yearly_propane_gas > 12000:
     for item in natural_gas_tips:
         nat_gas_message = st.code(item)
 else:
-    nat_gas_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+    nat_gas_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
                          'Gas: Good </h3>'
     st.markdown(nat_gas_good, unsafe_allow_html=True)
 
-    nat_gas_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+    nat_gas_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
                        'You are using the recommended amount of gas, good job!</p>'
     st.markdown(nat_gas_sub_good, unsafe_allow_html=True)
 
@@ -222,11 +229,11 @@ if yearly_oil > 2000:
     for item in oil_tips:
         oil_message = st.code(item)
 else:
-    oil_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+    oil_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
                          'Oil: Good </h3>'
     st.markdown(oil_good, unsafe_allow_html=True)
 
-    oil_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+    oil_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
                    'You are using the recommended amount of oil, good job!</p>'
     st.markdown(oil_sub_good, unsafe_allow_html=True)
 
@@ -249,11 +256,11 @@ if total_yearly_mileage > 5920:
     for item in mileage_tips:
         mileage_message = st.code(item)
 else:
-    mileage_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+    mileage_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
                    'Mileage: Good </h3>'
     st.markdown(mileage_good, unsafe_allow_html=True)
 
-    mileage_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+    mileage_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
                        'You have an average or lower than average mileage, good job!</p>'
     st.markdown(mileage_sub_good, unsafe_allow_html=True)
 
@@ -276,11 +283,11 @@ if number_of_flights_less > 6 * 1100:
     for item in flights_tips_less:
         flights_less_message = st.code(item)
 else:
-    flights_less_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+    flights_less_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
                         'Flights (less than 4 hours): Good </h3>'
     st.markdown(flights_less_good, unsafe_allow_html=True)
 
-    flights_less_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+    flights_less_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
                             'You have an average or lower than average number of flights (less than 4 hours), ' \
                             'good job!</p>'
     st.markdown(flights_less_sub_good, unsafe_allow_html=True)
@@ -305,11 +312,11 @@ if number_of_flights_more > 2 * 4400:
     for item in flights_tips_more:
         flights_more_message = st.code(item)
 else:
-    flights_more_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+    flights_more_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
                         'Flights (more than 4 hours): Good </h3>'
     st.markdown(flights_more_good, unsafe_allow_html=True)
 
-    flights_more_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+    flights_more_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
                             'You have an average or lower than average number of flights (more than 4 hours), ' \
                             'good job!</p>'
     st.markdown(flights_more_sub_good, unsafe_allow_html=True)
@@ -333,11 +340,11 @@ if recycle_newspaper == 'No':
     for item in recycle_paper_tips:
         recycle_paper_message = st.code(item)
 else:
-    recycle_paper_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+    recycle_paper_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
                         'Recycling Paper: Good </h3>'
     st.markdown(recycle_paper_good, unsafe_allow_html=True)
 
-    recycle_paper_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+    recycle_paper_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
                              'You recycle paper items such as newspaper, paper, letters, cardboard, ' \
                              'good job!</p>'
     st.markdown(recycle_paper_sub_good, unsafe_allow_html=True)
@@ -363,11 +370,11 @@ if recycle_aluminium == 'No':
     for item in recycle_aluminium_tips:
         recycle_aluminium_message = st.code(item)
 else:
-    recycle_aluminium_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+    recycle_aluminium_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
                              'Recycling Aluminium: Good </h3>'
     st.markdown(recycle_aluminium_good, unsafe_allow_html=True)
 
-    recycle_aluminium_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+    recycle_aluminium_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
                                  'You recycle aluminium and tin items such as tins, foil, ' \
                                  'products containing aluminium ' \
                                  'good job!</p>'
@@ -390,122 +397,11 @@ if carbon_offset < 138.8913:
     for item in carbon_offset_tips:
         carbon_offset_message = st.code(item)
 else:
-    carbon_offset_good = '<h3 style="font-family:monospace; color: #9ef01a;">' \
+    carbon_offset_good = '<h3 style="font-family:monospace; color: #01FD7A;">' \
                              'carbon offset: Good </h3>'
     st.markdown(carbon_offset_good, unsafe_allow_html=True)
 
-    carbon_offset_sub_good = '<p style="font-family:monospace; color: #9ef01a; font-size: 14px;">' \
+    carbon_offset_sub_good = '<p style="font-family:monospace; color: #01FD7A; font-size: 14px;">' \
                              'You plant the average number of trees to offset your emissions' \
                              ' good job!</p>'
     st.markdown(carbon_offset_sub_good, unsafe_allow_html=True)
-
-# def electric(yearly_electric):
-#     global carbon_total
-#     yearly_electric = yearly_electric * 0.994
-#     carbon_total = carbon_total + yearly_electric
-#     return carbon_total
-#
-#
-# def gas(yearly_natural_gas):
-#     global carbon_total
-#     yearly_natural_gas = yearly_natural_gas * 11.7
-#     carbon_total = carbon_total + yearly_natural_gas
-#     return carbon_total
-#
-#
-# def propane(yearly_propane_gas):
-#     global carbon_total
-#     yearly_propane_gas = yearly_propane_gas * 13
-#     carbon_total = carbon_total + yearly_propane_gas
-#     return carbon_total
-#
-#
-# def oil(yearly_oil):
-#     global carbon_total
-#     yearly_oil = yearly_oil * 19.6
-#     carbon_total = carbon_total + yearly_oil
-#     return carbon_total
-#
-#
-# def yearly_mileage(total_yearly_gallons, total_yearly_mileage):
-#     global carbon_total
-#     total_fuel_usage = total_yearly_mileage / total_yearly_gallons
-#     emission = total_fuel_usage * 19.6
-#     carbon_total = carbon_total + emission
-#     return carbon_total
-#
-#
-# def flights_less(number_of_flights_less):
-#     global carbon_total
-#     number_of_flights_less = number_of_flights_less * 1100
-#     carbon_total = carbon_total + number_of_flights_less
-#     return carbon_total
-#
-#
-# def flights_more(number_of_flights_more):
-#     global carbon_total
-#     number_of_flights_more = number_of_flights_more * 4400
-#     carbon_total = carbon_total + number_of_flights_more
-#     return carbon_total
-#
-#
-# def recycle_paper(recycle_newspaper):
-#     global carbon_total
-#     if recycle_newspaper == "y":
-#         carbon_total = carbon_total + 0
-#     elif recycle_newspaper == "n":
-#         carbon_total = carbon_total + 184
-#     return carbon_total
-#
-#
-# def recycle_alu_tin(recycle_aluminium):
-#     global carbon_total
-#     if recycle_aluminium == "y":
-#         carbon_total = carbon_total + 0
-#     elif recycle_aluminium == "n":
-#         carbon_total = carbon_total + 166
-#     return carbon_total
-#
-#
-# def trees_count(trees):
-#     global carbon_total
-#     global carbon_offset
-#     carbon_offset = carbon_offset * trees
-#     carbon_total = carbon_total - carbon_offset
-#     return carbon_total
-#
-#
-#
-#
-#
-# electric(yearly_electric)
-#
-#
-# gas(yearly_natural_gas)
-#
-#
-# propane(yearly_propane_gas)
-#
-#
-# oil(yearly_oil)
-#
-#
-# yearly_mileage(total_yearly_mileage, total_yearly_gallons)
-#
-#
-# flights_less(number_of_flights_less)
-#
-#
-# flights_more(number_of_flights_more)
-#
-#
-# recycle_paper(recycle_newspaper)
-#
-#
-# recycle_alu_tin(recycle_aluminium)
-#
-#
-# trees_count(trees)
-#
-#
-# carbon_total = st.text(carbon_total)
