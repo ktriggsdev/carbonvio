@@ -325,6 +325,7 @@ else:
 # carbon footprint result is displayed
 st.subheader('Your Carbon Footprint:')
 carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
+carbon_total = str(carbon_total)
 st.write(type(carbon_total))
 
 name_input = st.text_input('name')
@@ -333,7 +334,7 @@ st.write(type(name_input))
 fields = [name_input, carbon_total]
 
 name_input = str(name_input)
-carbon_total = str(carbon_total)
+
 
 result = st.button("Submit")
 
