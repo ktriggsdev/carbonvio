@@ -327,7 +327,6 @@ st.subheader('Your Carbon Footprint:')
 carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 
 name_input = st.text_input('name')
-carbon_total = st.number_input(carbon_total)
 
 fields = [name_input, carbon_total]
 
@@ -335,4 +334,3 @@ with open('leaderboard.csv', 'a', newline='') as f:  # Append & read mode
 
     writer = csv.writer(f)
     writer.writerow(fields)
-    
