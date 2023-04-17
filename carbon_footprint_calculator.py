@@ -89,15 +89,6 @@ def electric(yearly_electric):
     yearly_electric = yearly_electric * 0.994
     carbon_total = carbon_total + yearly_electric
 
-
-def gas(yearly_natural_gas, yearly_propane_gas):
-    global carbon_total
-    yearly_natural_gas = yearly_natural_gas * 11.7
-    carbon_total = carbon_total + yearly_natural_gas
-    yearly_propane_gas = yearly_propane_gas * 13
-    carbon_total = carbon_total + yearly_propane_gas
-
-
 def oil(yearly_oil):
     global carbon_total
     yearly_oil = yearly_oil * 19.6
@@ -125,6 +116,11 @@ def recycle_alu_tin(recycle_aluminium):
         carbon_total = carbon_total + 0
     elif recycle_aluminium == "No":
         carbon_total = carbon_total + 166
+
+yearly_natural_gas = yearly_natural_gas * 11.7
+carbon_total = carbon_total + yearly_natural_gas
+yearly_propane_gas = yearly_propane_gas * 13
+carbon_total = carbon_total + yearly_propane_gas
 
 number_of_flights_less = number_of_flights_less * 1100
 carbon_total = carbon_total + number_of_flights_less
@@ -172,7 +168,6 @@ else:
 
 
 # gas
-gas(yearly_natural_gas, yearly_propane_gas)
 if yearly_natural_gas > 12000 or yearly_propane_gas > 12000:
     natural_gas_tips = [
         'Consider an energy audit',
