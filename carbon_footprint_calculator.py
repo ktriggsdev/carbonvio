@@ -88,15 +88,24 @@ elif metric_imperial == 'Imperial':
 yearly_electric = yearly_electric * 0.994
 carbon_total = carbon_total + yearly_electric
 
+yearly_natural_gas = yearly_natural_gas * 11.7
+carbon_total = carbon_total + yearly_natural_gas
+
+yearly_propane_gas = yearly_propane_gas * 13
+carbon_total = carbon_total + yearly_propane_gas
 
 yearly_oil = yearly_oil * 19.6
 carbon_total = carbon_total + yearly_oil
 
+number_of_flights_less = number_of_flights_less * 1100
+carbon_total = carbon_total + number_of_flights_less
+
+number_of_flights_more = number_of_flights_more * 4400
+carbon_total = carbon_total + number_of_flights_more
 
 total_fuel_usage = total_yearly_mileage / total_yearly_gallons
 emission = total_fuel_usage * 19.6
 carbon_total = carbon_total + emission
-
 
 if recycle_newspaper == "Yes":
     carbon_total = carbon_total + 0
@@ -109,16 +118,6 @@ if recycle_aluminium == "Yes":
 elif recycle_aluminium == "No":
     carbon_total = carbon_total + 166
 
-yearly_natural_gas = yearly_natural_gas * 11.7
-carbon_total = carbon_total + yearly_natural_gas
-yearly_propane_gas = yearly_propane_gas * 13
-carbon_total = carbon_total + yearly_propane_gas
-
-number_of_flights_less = number_of_flights_less * 1100
-carbon_total = carbon_total + number_of_flights_less
-
-number_of_flights_more = number_of_flights_more * 4400
-carbon_total = carbon_total + number_of_flights_more
 
 carbon_offset = carbon_offset * trees
 carbon_total = carbon_total - carbon_offset
