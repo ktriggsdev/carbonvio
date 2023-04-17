@@ -330,6 +330,6 @@ name = st.text_input("Name for leaderboard")
 df = pd.DataFrame({'name': [name],
                    'carbon_total': [carbon_total]})
 
-df.sort_values([carbon_total], ascending=False)
+df = df.sort(['carbon_total'], ascending=[1, 0])
 
 df.to_csv('leaderboard.csv', index=False)
