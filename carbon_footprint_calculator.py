@@ -1,4 +1,5 @@
 import streamlit as st
+import csv
 import pandas as pd
 
 file = 'img/carbonvio.png'
@@ -325,14 +326,13 @@ else:
 st.subheader('Your Carbon Footprint:')
 carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 
+name_input = st.text_input('name')
+carbon_total = st.number_input(carbon_total)
 
-with open('leaderboard.csv', 'a+') as f:  # Append & read mode
+fields = [name_input, carbon_total]
 
-    with st.form("form"):
+with open('leaderboard.csv', 'a', newline='') as f:  # Append & read mode
 
-        name_input = st.text_input('name', key='name')
-        carbon_input = st.number_input(carbon_total)
-
-        submitted = st.form_submit_button("Submit")
-        if submitted:
-            st.write("name", name_input, "carbon_total", carbon_input)
+    writer = csv.writer(f)
+    writer.writerow(fields)
+    
