@@ -331,7 +331,7 @@ st.write(type(carbon_total))
 name_input = st.text_input('name')
 st.write(type(name_input))
 
-fields = [name_input, carbon_total]
+fields = [str(name_input), str(carbon_total)]
 
 name_input = str(name_input)
 
