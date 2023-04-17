@@ -331,7 +331,7 @@ with open('leaderboard.csv', 'a+') as f:  # Append & read mode
     with st.form("form"):
 
         name_input = st.text_input('name', key='name')
-        carbon_input = st.text_input(carbon_total)
+        carbon_input = st.number_input(carbon_total)
 
         submitted = st.form_submit_button("Submit")
         if submitted:
