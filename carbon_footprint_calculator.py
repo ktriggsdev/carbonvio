@@ -330,7 +330,14 @@ name_input = st.text_input('name')
 
 fields = [name_input, carbon_total]
 
-with open('leaderboard.csv', 'a', newline='') as f:  # Append & read mode
+result = st.button("Submit")
 
-    writer = csv.writer(f)
-    writer.writerow(fields)
+if result:
+
+    with open('leaderboard.csv', 'a', newline='') as f:  # Append & read mode
+
+        writer = csv.writer(f)
+        writer.writerow(fields)
+
+st.info(" #### Show contents of the CSV file :point_down:")
+st.dataframe(pd.read_csv("leaderboard.csv", names=["", "Note"]), height=300)
