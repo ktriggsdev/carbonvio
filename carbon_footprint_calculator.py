@@ -70,7 +70,7 @@ elif metric_imperial == 'Imperial':
                                              ' that are 4 hours or less?: ', 0, 50)
     number_of_flights_less = float(number_of_flights_less)
     number_of_flights_more = st.number_input('How many flights have you taken this year' +
-                                             'that are 4 hours or more?: ', 0, 50)
+                                             ' that are 4 hours or more?: ', 0, 50)
     number_of_flights_more = float(number_of_flights_more)
     st.subheader('Recycling')
     recycle_newspaper = st.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
@@ -139,8 +139,9 @@ def recycle_alu_tin(recycle_aluminium):
         carbon_total = carbon_total + 166
 
 
-def carbon_offset_func(carbon_offset, trees):
+def carbon_offset_func(carbon_offset):
     global carbon_total
+    global trees
     carbon_offset = carbon_offset * trees
     carbon_total = carbon_total - carbon_offset
 
@@ -336,7 +337,7 @@ else:
                    'good job!')    
 
 # how many trees has the user planted?
-carbon_offset_func(carbon_offset, trees)
+carbon_offset_func(carbon_offset)
 if carbon_offset < 138.8913:
     carbon_offset_tips = [
         'plant more trees or flowers',
