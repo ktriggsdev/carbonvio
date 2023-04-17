@@ -325,11 +325,18 @@ else:
 st.subheader('Your Carbon Footprint:')
 carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 
-name = st.text_input("Name for leaderboard")
 
-df = pd.DataFrame({'name': [name],
-                   'carbon_total': [carbon_total]})
+def form_callback(data1, data2):
+    with open('leaderboard.csv', 'a+') as f:  # Append & read mode
+        f.write(f"{data1},{data2}\n")
 
-df = df.sort(['carbon_total'], ascending=[1, 0])
 
-df.to_csv('leaderboard.csv', index=False)
+with st.form(key="form", clear_on_submit=True):
+
+    name_input = st.text_input('name', key='name')
+    carbon_input = st.text_input(carbon_total)
+
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        st.write("name", name_input, "carbon_total", carbon_input)
+        form_callback(name_input, carbon_input)
