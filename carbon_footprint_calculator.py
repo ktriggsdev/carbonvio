@@ -1,4 +1,5 @@
 import streamlit as st
+import csv
 
 file = 'img/carbonvio.png'
 
@@ -323,3 +324,19 @@ else:
 # carbon footprint result is displayed
 st.subheader('Your Carbon Footprint:')
 carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
+
+name = st.text_input("Name for leaderboard")
+# Open the leaderboard.csv file in write mode
+with open("leaderboard.csv", "w", newline="") as f:
+
+    # Create a writer object for the leaderboard.csv file
+    writer = csv.writer(f)
+
+    # Write the header row to the leaderboard.csv file
+    writer.writerow(["Rank", "Name", "Carbon Total"])
+
+    # Iterate over the carbon_total variable
+    for rank, name, carbon_total in enumerate(carbon_total):
+
+        # Write the rank, name, and carbon_total to the leaderboard.csv file
+        writer.writerow([rank + 1, name, carbon_total])
