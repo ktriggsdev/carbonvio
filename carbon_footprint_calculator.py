@@ -334,6 +334,8 @@ fields = [str(name_input), str(carbon_total)]
 
 name_input = str(name_input)
 
+carbon_total = str(carbon_total)
+
 
 result = st.button("Submit")
 
