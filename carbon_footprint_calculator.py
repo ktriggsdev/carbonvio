@@ -84,38 +84,30 @@ elif metric_imperial == 'Imperial':
 
 
 # the brains of the program where the calculations are made.
-def electric(yearly_electric):
-    global carbon_total
-    yearly_electric = yearly_electric * 0.994
-    carbon_total = carbon_total + yearly_electric
 
-def oil(yearly_oil):
-    global carbon_total
-    yearly_oil = yearly_oil * 19.6
-    carbon_total = carbon_total + yearly_oil
+yearly_electric = yearly_electric * 0.994
+carbon_total = carbon_total + yearly_electric
 
 
-def fuel(total_yearly_mileage, total_yearly_gallons):
-    global carbon_total
-    total_fuel_usage = total_yearly_mileage / total_yearly_gallons
-    emission = total_fuel_usage * 19.6
-    carbon_total = carbon_total + emission
+yearly_oil = yearly_oil * 19.6
+carbon_total = carbon_total + yearly_oil
 
 
-def recycle_paper(recycle_newspaper):
-    global carbon_total
-    if recycle_newspaper == "Yes":
-        carbon_total = carbon_total + 0
-    elif recycle_newspaper == "No":
-        carbon_total = carbon_total + 184
+total_fuel_usage = total_yearly_mileage / total_yearly_gallons
+emission = total_fuel_usage * 19.6
+carbon_total = carbon_total + emission
 
 
-def recycle_alu_tin(recycle_aluminium):
-    global carbon_total
-    if recycle_aluminium == "Yes":
-        carbon_total = carbon_total + 0
-    elif recycle_aluminium == "No":
-        carbon_total = carbon_total + 166
+if recycle_newspaper == "Yes":
+    carbon_total = carbon_total + 0
+elif recycle_newspaper == "No":
+    carbon_total = carbon_total + 184
+
+
+if recycle_aluminium == "Yes":
+    carbon_total = carbon_total + 0
+elif recycle_aluminium == "No":
+    carbon_total = carbon_total + 166
 
 yearly_natural_gas = yearly_natural_gas * 11.7
 carbon_total = carbon_total + yearly_natural_gas
@@ -133,8 +125,6 @@ carbon_total = carbon_total - carbon_offset
 
 
 # yearly electric
-electric(yearly_electric)
-
 if yearly_electric > 2900:
     electricity_tips = [
         'Consider an energy audit',
@@ -206,7 +196,6 @@ else:
         st.success('You are using the recommended amount of gas, good job!')
 
 # oil
-oil(yearly_oil)
 if yearly_oil > 2000:
     oil_tips = [
         'Consider an energy audit',
@@ -231,7 +220,6 @@ else:
         st.success('You are using the recommended amount of oil, good job!')
 
 # mileage
-fuel(total_yearly_mileage, total_yearly_gallons)
 if total_yearly_mileage > 5920:
     mileage_tips = [
         'Consider eating and buying locally rather than travelling far',
@@ -282,7 +270,6 @@ else:
                    ', Good Job!')
 
 # recycling paper
-recycle_paper(recycle_newspaper)
 if recycle_newspaper == 'No':
     recycle_paper_tips = [
         'consider recycling newspaper',
@@ -300,7 +287,6 @@ else:
                    'good job!')
 
 # recycling aluminium and tin
-recycle_alu_tin(recycle_aluminium)
 if recycle_aluminium == 'No':
     recycle_aluminium_tips = [
         'consider recycling tins',
