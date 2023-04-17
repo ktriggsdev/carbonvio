@@ -327,7 +327,9 @@ carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 
 name = st.text_input("Name for leaderboard")
 
-df = pd.DataFrame({'name': name, 'carbon_total': carbon_total})
-df = df.sort_values(by=['carbon_total'], ascending=False)
+df = pd.DataFrame({'name': [name],
+                   'carbon_total': [carbon_total]})
+
+df.sort_values([carbon_total], ascending=False)
 
 df.to_csv('leaderboard.csv', index=False)
