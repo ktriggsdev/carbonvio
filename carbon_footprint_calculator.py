@@ -336,7 +336,7 @@ else:
                    'good job!')    
 
 # how many trees has the user planted?
-carbon_offset_func(carbon_offset)
+carbon_offset_func(carbon_offset, trees)
 if carbon_offset < 138.8913:
     carbon_offset_tips = [
         'plant more trees or flowers',
