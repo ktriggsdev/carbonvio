@@ -245,7 +245,7 @@ else:
         st.success('You are using the recommended amount of oil, good job!')
 
 # mileage
-fuel(total_yearly_mileage)
+fuel(total_yearly_mileage, total_yearly_gallons)
 if total_yearly_mileage > 5920:
     mileage_tips = [
         'Consider eating and buying locally rather than travelling far',
