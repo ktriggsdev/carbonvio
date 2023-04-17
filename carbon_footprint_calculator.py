@@ -5,7 +5,7 @@ file = 'img/carbonvio.png'
 # sets the configuration of the app on streamlit
 st.set_page_config(
     page_title='Carbonvio', 
-    page_icon = 'img/carbonvio.ico',
+    page_icon='img/carbonvio.ico',
     menu_items={
         'Report a bug': "https://github.com/ktriggsdev/carbonvio/issues",
         'About': "Carbonvio, A carbon footprint calculator with a difference."
@@ -34,9 +34,11 @@ if metric_imperial == 'Metric':
     total_yearly_mileage = float(total_yearly_mileage)
     total_yearly_gallons = total_yearly_mileage / 25
     total_yearly_gallons = float(total_yearly_gallons)
-    number_of_flights_less = st.number_input('How many flights have you taken this year that are 4 hours or less?: ', 0, 50)
+    number_of_flights_less = st.number_input('How many flights have you taken this year' +
+                                             'that are 4 hours or less?: ', 0, 50)
     number_of_flights_less = float(number_of_flights_less)
-    number_of_flights_more = st.number_input('How many flights have you taken this year that are 4 hours or more?: ', 0, 50)
+    number_of_flights_more = st.number_input('How many flights have you taken this year' +
+                                             'that are 4 hours or more?: ', 0, 50)
     number_of_flights_more = float(number_of_flights_more)
     st.subheader('Recycling')
     recycle_newspaper = st.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
@@ -44,7 +46,7 @@ if metric_imperial == 'Metric':
 
     trees = st.number_input("how many trees have you planted this year?: ", 0, 1000)
     trees = float(trees)
-    carbon_offset = 46.2971 # the offset for each tree per year.
+    carbon_offset = 46.2971   # the offset for each tree per year.
 
     carbon_total = 0.0
 elif metric_imperial == 'Imperial':
@@ -64,9 +66,11 @@ elif metric_imperial == 'Imperial':
     total_yearly_mileage = float(total_yearly_mileage)
     total_yearly_gallons = total_yearly_mileage / 25
     total_yearly_gallons = float(total_yearly_gallons)
-    number_of_flights_less = st.number_input('How many flights have you taken this year that are 4 hours or less?: ', 0, 50)
+    number_of_flights_less = st.number_input('How many flights have you taken this year' +
+                                             ' that are 4 hours or less?: ', 0, 50)
     number_of_flights_less = float(number_of_flights_less)
-    number_of_flights_more = st.number_input('How many flights have you taken this year that are 4 hours or more?: ', 0, 50)
+    number_of_flights_more = st.number_input('How many flights have you taken this year' +
+                                             ' that are 4 hours or more?: ', 0, 50)
     number_of_flights_more = float(number_of_flights_more)
     st.subheader('Recycling')
     recycle_newspaper = st.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
@@ -78,7 +82,9 @@ elif metric_imperial == 'Imperial':
 
     carbon_total = 0.0
 
+
 # the brains of the program where the calculations are made.
+
 yearly_electric = yearly_electric * 0.994
 carbon_total = carbon_total + yearly_electric
 
@@ -91,29 +97,30 @@ carbon_total = carbon_total + yearly_propane_gas
 yearly_oil = yearly_oil * 19.6
 carbon_total = carbon_total + yearly_oil
 
-total_fuel_usage = total_yearly_mileage / total_yearly_gallons
-emission = total_fuel_usage * 19.6
-carbon_total = carbon_total + emission
-
 number_of_flights_less = number_of_flights_less * 1100
 carbon_total = carbon_total + number_of_flights_less
 
 number_of_flights_more = number_of_flights_more * 4400
 carbon_total = carbon_total + number_of_flights_more
 
+total_fuel_usage = total_yearly_mileage / total_yearly_gallons
+emission = total_fuel_usage * 19.6
+carbon_total = carbon_total + emission
+
 if recycle_newspaper == "Yes":
     carbon_total = carbon_total + 0
 elif recycle_newspaper == "No":
     carbon_total = carbon_total + 184
+
 
 if recycle_aluminium == "Yes":
     carbon_total = carbon_total + 0
 elif recycle_aluminium == "No":
     carbon_total = carbon_total + 166
 
+
 carbon_offset = carbon_offset * trees
 carbon_total = carbon_total - carbon_offset
-
 
 
 # yearly electric
@@ -139,14 +146,15 @@ if yearly_electric > 2900:
         'Do Only Full Laundry Loads',
         'Install a smart meter'
     ]
-    
+
     with st.expander('You are using too much electricity! here are some ways to cut back on your usage:'):
-   
+
         for item in electricity_tips:
             electricity_message = st.error(item)
 else:
     with st.expander('Electricity: Good!'):
         st.success('You are using the recommended amount of electricity, good job!')
+
 
 # gas
 if yearly_natural_gas > 12000 or yearly_propane_gas > 12000:
@@ -240,7 +248,7 @@ if number_of_flights_less > 6 * 1100:
             flights_less_message = st.error(item)
 else:
     with st.expander('Flights (less than 4 hours): Good!'):
-        st.success('You have an average or lower than average number of flights (less than 4 hours)'+
+        st.success('You have an average or lower than average number of flights (less than 4 hours)' +
                    ', Good Job!')
 
 # flights (more than 4 hours)
@@ -304,7 +312,6 @@ if carbon_offset < 138.8913:
     ]
     with st.expander('You do not plant enough trees to offset your carbon emissions ' +
                      'here are some ways to offset your carbon emissions:'):
-
 
         for item in carbon_offset_tips:
             carbon_offset_message = st.error(item)
