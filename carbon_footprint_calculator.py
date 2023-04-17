@@ -1,5 +1,5 @@
 import streamlit as st
-import csv
+import pandas as pd
 
 file = 'img/carbonvio.png'
 
@@ -327,16 +327,11 @@ carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 
 name = st.text_input("Name for leaderboard")
 # Open the leaderboard.csv file in write mode
-with open("leaderboard.csv", "w", newline="") as f:
+# Create a Pandas DataFrame
+df = pd.DataFrame({'name': name, 'carbon_total': carbon_total})
 
-    # Create a writer object for the leaderboard.csv file
-    writer = csv.writer(f)
+# Sort the DataFrame by carbon_total in descending order
+df = df.sort_values('carbon_total', ascending=False)
 
-    # Write the header row to the leaderboard.csv file
-    writer.writerow(["Rank", "Name", "Carbon Total"])
-
-    # Iterate over the carbon_total variable
-    for rank, name, carbon_total in enumerate(carbon_total):
-
-        # Write the rank, name, and carbon_total to the leaderboard.csv file
-        writer.writerow([rank + 1, name, carbon_total])
+# Write the DataFrame to a CSV file
+df.to_csv('leaderboard.csv', index=False)
