@@ -327,9 +327,11 @@ st.subheader('Your Carbon Footprint:')
 carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 
 name_input = st.text_input('name')
-name_input = str(name_input)
 
 fields = [name_input, carbon_total]
+
+name_input = str(name_input)
+carbon_total = float(carbon_total)
 
 result = st.button("Submit")
 
@@ -341,4 +343,4 @@ if result:
         writer.writerow(fields)
 
 st.info(" #### Show contents of the CSV file :point_down:")
-st.dataframe(pd.read_csv("leaderboard.csv", names=["", "carbon_total"]), height=300)
+st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
