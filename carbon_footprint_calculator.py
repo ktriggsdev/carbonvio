@@ -333,7 +333,7 @@ st.write(type(name_input))
 fields = [name_input, carbon_total]
 
 name_input = str(name_input)
-carbon_total = float(carbon_total)
+carbon_total = str(carbon_total)
 
 result = st.button("Submit")
 
