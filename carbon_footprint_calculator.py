@@ -139,11 +139,8 @@ def recycle_alu_tin(recycle_aluminium):
         carbon_total = carbon_total + 166
 
 
-def carbon_offset_func(carbon_offset):
-    global carbon_total
-    global trees
-    carbon_offset = carbon_offset * trees
-    carbon_total = carbon_total - carbon_offset
+carbon_offset = carbon_offset * trees
+carbon_total = carbon_total - carbon_offset
 
 
 # yearly electric
@@ -337,7 +334,6 @@ else:
                    'good job!')    
 
 # how many trees has the user planted?
-carbon_offset_func(carbon_offset)
 if carbon_offset < 138.8913:
     carbon_offset_tips = [
         'plant more trees or flowers',
