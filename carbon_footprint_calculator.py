@@ -111,18 +111,6 @@ def fuel(total_yearly_mileage, total_yearly_gallons):
     carbon_total = carbon_total + emission
 
 
-def flights_less(number_of_flights_less):
-    global carbon_total
-    number_of_flights_less = number_of_flights_less * 1100
-    carbon_total = carbon_total + number_of_flights_less
-
-
-def flights_more(number_of_flights_more):
-    global carbon_total
-    number_of_flights_more = number_of_flights_more * 4400
-    carbon_total = carbon_total + number_of_flights_more
-
-
 def recycle_paper(recycle_newspaper):
     global carbon_total
     if recycle_newspaper == "Yes":
@@ -138,6 +126,11 @@ def recycle_alu_tin(recycle_aluminium):
     elif recycle_aluminium == "No":
         carbon_total = carbon_total + 166
 
+number_of_flights_less = number_of_flights_less * 1100
+carbon_total = carbon_total + number_of_flights_less
+
+number_of_flights_more = number_of_flights_more * 4400
+carbon_total = carbon_total + number_of_flights_more
 
 carbon_offset = carbon_offset * trees
 carbon_total = carbon_total - carbon_offset
@@ -261,7 +254,6 @@ else:
         st.success('You have an average or lower than average mileage, good job!')
 
 # flights (less than 4 hours)
-flights_less(number_of_flights_less)
 if number_of_flights_less > 6 * 1100:
     flights_tips_less = [
         'Consider flying abroad less for holidays',
@@ -278,7 +270,6 @@ else:
                    ', Good Job!')
 
 # flights (more than 4 hours)
-flights_more(number_of_flights_more)
 if number_of_flights_more > 2 * 4400:
     flights_tips_more = [
         'Consider flying abroad less for holidays',
