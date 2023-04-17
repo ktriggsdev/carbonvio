@@ -341,4 +341,4 @@ if result:
         writer.writerow(fields)
 
 st.info(" #### Show contents of the CSV file :point_down:")
-st.dataframe(pd.read_csv("leaderboard.csv", names=["", "Note"]), height=300)
+st.dataframe(pd.read_csv("leaderboard.csv", names=["", "carbon_total"]), height=300)
