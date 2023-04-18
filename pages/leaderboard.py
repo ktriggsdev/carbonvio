@@ -10,8 +10,4 @@ st.set_page_config(
     })
 st.title('Carbon Emissions Leaderboard')
 
-# Read the carbon_total data into a Pandas DataFrame
-df = pd.read_csv("leaderboard.csv")
-
-# Create a leaderboard table
-st.table(df.sort_values("carbon_total", ascending=False))
+st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
