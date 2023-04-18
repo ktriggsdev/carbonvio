@@ -330,7 +330,7 @@ carbon_total = st.number_input(carbon_total)
 
 name_input = st.text_input('name')
 
-fields = [name_input, carbon_total]
+fields = [str(name_input), float(carbon_total)]
 
 result = st.button("Submit")
 
