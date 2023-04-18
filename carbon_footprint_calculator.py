@@ -326,9 +326,9 @@ else:
 st.subheader('Your Carbon Footprint:')
 carbon_total = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 
-carbon_total = st.text(f'{carbon_total}')
+carbon_total = st.text_input(f'{carbon_total}')
 
-name_input = st.text('name')
+name_input = st.text_input('name')
 
 fields = [name_input, carbon_total]
 
