@@ -326,12 +326,11 @@ else:
 st.subheader('Your Carbon Footprint:')
 carbon_footprint = st.text(f'Your Carbon Footprint is {carbon_total} tonnes of CO2')
 
-carbon_total_footprint = st.number_input(carbon_total)
-carbon_total_footprint = float(carbon_total_footprint)
+carbon_total_footprint = float(carbon_total)
 
 name_input = st.text_input('name')
 
-fields = [str(name_input), float(carbon_total)]
+fields = [name_input, carbon_total_footprint]
 
 result = st.button("Submit")
 
