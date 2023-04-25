@@ -57,20 +57,23 @@ sidebar = st.sidebar
 
 # Ask the user to choose between login or register in the sidebar
 mode = sidebar.radio('Choose mode', ['Login', 'Register'])
+print("test 1")
 
 # If the user chooses login, ask them to enter username and password in the sidebar
 if mode == 'Login':
     username = sidebar.text_input('Username')
     password = sidebar.text_input('Password', type='password')
+    print("test 2")
 
     # If the user clicks the login button, check the credentials and display a message
     if sidebar.button('Login'):
         if check_credentials(username, password):
             st.success('Welcome back {}'.format(username))
-
+            print("test 3")
             
             # user chooses either metric or imperial, the results differ for each option
             metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
+            print("test 4")
 
             if metric_imperial == 'Metric':
                 st.subheader('Utility usage:')
@@ -416,7 +419,8 @@ if mode == 'Login':
 
 
             # Add a button to log out
-if st.button('Log out'):
+            if st.button('Log out'):
+                print("test 5")
                 st.info('You have been successfuly logged out! Goodbye.')
                 # Clear the username and password inputs
                 sidebar.empty()
@@ -424,6 +428,7 @@ if st.button('Log out'):
                 st.experimental_rerun()
 else:
     st.error('Sorry, that isnt a valid username or password. Please try again')
+    print("test 6")
 
 # If the user chooses register, ask them to enter a new username and password in the sidebar
 if mode == 'Register':
