@@ -70,7 +70,6 @@ if mode == 'Login':
             del mode
             del username
             del password
-            del sidebar.radio('Choose mode', ['Login', 'Register'])
             
             # user chooses either metric or imperial, the results differ for each option
             metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
