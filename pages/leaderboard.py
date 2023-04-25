@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import hashlib
 
 st.set_page_config(
     page_title='Carbonvio',
@@ -19,9 +20,7 @@ try:
 except FileNotFoundError:
     df = pd.DataFrame({
         'username': ['admin'],
-        'password': ['5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', # hash of 'password'
-                     'e38ad214943daad1d64c102faec29de4afe9da3d', # hash of 'streamlit'
-                     '5e52fee47e6f95708eab44de4c0f3dab9d21b9db'] # hash of 'python'
+        'password': ['5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8']
     })
 
 # Define a function to hash passwords
@@ -47,7 +46,6 @@ def register_account(username, password):
         return True
 
 # Create a title and a sidebar
-st.title('Login System')
 sidebar = st.sidebar
 
 # Ask the user to choose between login or register in the sidebar
@@ -66,19 +64,19 @@ if mode == 'Login':
             st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
 
             # Add a button to log out
-if st.button('Log out'):
+            if st.button('Log out'):
                 st.info('You have been successfuly logged out! Goodbye.')
                 # Clear the username and password inputs
                 sidebar.empty()
                 # Reload the page
                 st.experimental_rerun()
-else:
+        else:
             st.error('Sorry, that isnt a valid username or password. Please try again')
 
 # If the user chooses register, ask them to enter a new username and password in the sidebar
-elsif  .mode == 'Register'
-new_username = sidebar.text_input('Create a username')
-new_password = sidebar.text_input('Create a new password', type='password')
+if  mode == 'Register':
+    new_username = sidebar.text_input('Create a username')
+    new_password = sidebar.text_input('Create a new password', type='password')
 
     # If the user clicks the register button, register a new account and display a message
 if sidebar.button('Register'):
