@@ -59,15 +59,15 @@ mode = sidebar.radio('Choose mode', ['Login', 'Register'], key="mode")
 
 # If the user chooses login, ask them to enter username and password in the sidebar
 if mode == 'Login':
-    username = sidebar.text_input('Username')
-    password = sidebar.text_input('Password', type='password')
+    username = sidebar.text_input('Username', key="mode")
+    password = sidebar.text_input('Password', type='password', key="mode")
 
     # If the user clicks the login button, check the credentials and display a message
     if sidebar.button('Login'):
         if check_credentials(username, password):
             st.success('Welcome back {}'.format(username))
 
-            del st.session_state[mode]
+            del st.session_state[key]
             # user chooses either metric or imperial, the results differ for each option
             metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
 
