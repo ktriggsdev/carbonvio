@@ -67,7 +67,7 @@ if mode == 'Login':
         if check_credentials(username, password):
             st.success('Welcome back {}'.format(username))
 
-            
+            mode = ""
             # user chooses either metric or imperial, the results differ for each option
             metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
 
