@@ -427,8 +427,8 @@ else:
 
 # If the user chooses register, ask them to enter a new username and password in the sidebar
 elif mode == 'Register':
-new_username = sidebar.text_input('Create a username')
-new_password = sidebar.text_input('Create a new password', type='password')
+    new_username = sidebar.text_input('Create a username')
+    new_password = sidebar.text_input('Create a new password', type='password')
 
     # If the user clicks the register button, register a new account and display a message
 if sidebar.button('Register'):
