@@ -423,7 +423,7 @@ if st.button('Log out'):
                 # Reload the page
                 st.experimental_rerun()
 else:
-            st.error('Sorry, that isnt a valid username or password. Please try again')
+    st.error('Sorry, that isnt a valid username or password. Please try again')
 
 # If the user chooses register, ask them to enter a new username and password in the sidebar
 if mode == 'Register':
