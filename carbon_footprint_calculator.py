@@ -94,13 +94,15 @@ def page_home():
 		    create_usertable()
 		    hashed_pswd = make_hashes(password)
 
-		    result = login_user(username,check_hashes(password,hashed_pswd))
-		    if result:
+		    login_result = login_user(username,check_hashes(password,hashed_pswd))
+
+		    if login_result:
 
 			    st.success("Logged In as {}".format(username))
 
 			    # user chooses either metric or imperial, the results differ for each option
-                metric_imperial = st.session_state.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
+                metric_imperial = st.session_state.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', 
+                ['Metric', 'Imperial'])
 
                 if metric_imperial == 'Metric':
                     st.subheader('Utility usage:')
