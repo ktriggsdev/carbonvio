@@ -52,7 +52,6 @@ def register_account(username, password):
         return True
 
 # Create a title and a sidebar
-st.title('Login System')
 sidebar = st.sidebar
 
 # Ask the user to choose between login or register in the sidebar
