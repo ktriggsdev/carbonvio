@@ -55,70 +55,89 @@ def view_all_users():
 
 
 def main():
-	"""Welcome to Carbonvio"""
+    if "page" not in st.session_state:
+    # initialize session state.
+    st.session_state.update({
+        "page": "home",
 
-	st.title("Carbonvio")
+        "options": ["Home", "Login", "Signup", "Metric", "Imperial", "Yes", "No"],
 
-	menu = ["Home","Login","SignUp"]
-	choice = st.sidebar.selectbox("Menu",menu)
+        "text": "",
+        "slider": 0,
+        "number_input": 0,
+        "checkbox": False,
+        "selectbox": "Hello",
+        "multiselect": ["Hello", "Everyone"],
+    })
 
-	if choice == "Home":
-		st.subheader("Home")
+    page = st.sidebar.radio("Select your page", tuple(PAGES.keys()), format_func=str.capitalize)
 
-	elif choice == "Login":
-		st.subheader("Login Section")
+    PAGES[page]()
 
-		username = st.sidebar.text_input("User Name")
-		password = st.sidebar.text_input("Password",type='password')
-		if st.sidebar.checkbox("Login"):
-			# if password == '12345':
-			create_usertable()
-			hashed_pswd = make_hashes(password)
 
-			result = login_user(username,check_hashes(password,hashed_pswd))
-			if result:
+def page_home():
+    st.title("Carbonvio")
 
-				st.success("Logged In as {}".format(username))
+    menu = ["Home","Login","SignUp"]
+    choice = st.sidebar.selectbox("Menu",menu)
+
+    if choice == "Home":
+	    st.subheader("Home")
+
+    elif choice == "Login":
+	    st.subheader("Login Section")
+
+	    username = st.sidebar.text_input("User Name")
+	    password = st.sidebar.text_input("Password",type='password')
+	    if st.sidebar.checkbox("Login"):
+		    # if password == '12345':
+		    create_usertable()
+		    hashed_pswd = make_hashes(password)
+
+		    result = login_user(username,check_hashes(password,hashed_pswd))
+		    if result:
+
+			    st.success("Logged In as {}".format(username))
 
 			    # user chooses either metric or imperial, the results differ for each option
-                metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
+                metric_imperial = st.session_state.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
 
                 if metric_imperial == 'Metric':
                     st.subheader('Utility usage:')
 
                     # user is asked to input the values to calculate their footprint for metric
-                    yearly_electric = st.number_input('How many KWh of electricity do you use per year?: ', 0, 100000)
+                    yearly_electric = st.session_state.number_input('How many KWh of electricity do you use per year?: ', 0, 100000)
                     yearly_electric = float(yearly_electric)
 
-                    yearly_natural_gas = st.number_input('How many cubic meters of natural gas do you use per year?: ', 0, 100000)
+                    yearly_natural_gas = st.session_state.number_input('How many cubic meters of natural gas do you use per year?: ', 0, 100000)
                     yearly_natural_gas = float(yearly_natural_gas)
 
-                    yearly_propane_gas = st.number_input('how many cubic meters of propane gas do you use per year?: ', 0, 100000)
+                    yearly_propane_gas = st.session_state.number_input('how many cubic meters of propane gas do you use per year?: ', 0, 100000)
                     yearly_propane_gas = float(yearly_propane_gas)
 
-                    yearly_oil = st.number_input('how many litres of oil do you use per year for heating purposes?: ', 0, 100000)
+                    yearly_oil = st.session_state.number_input('how many litres of oil do you use per year for heating purposes?: ', 0, 100000)
                     yearly_oil = float(yearly_oil)
 
                     st.subheader('Transport:')
-                    total_yearly_mileage = st.number_input('how many miles have you done in your vehicle this year?: ', 1, 100000)
+                    total_yearly_mileage = st.session_state.number_input('how many miles have you done in your vehicle this year?: ', 1, 100000)
                     total_yearly_mileage = float(total_yearly_mileage)
                     total_yearly_gallons = total_yearly_mileage / 25
                     total_yearly_gallons = float(total_yearly_gallons)
 
-                    number_of_flights_less = st.number_input('How many flights have you taken this year' +
+                    number_of_flights_less = st.session_state.number_input('How many flights have you taken this year' +
                                                                 'that are 4 hours or less?: ', 0, 50)
                     number_of_flights_less = float(number_of_flights_less)
 
-                    number_of_flights_more = st.number_input('How many flights have you taken this year' +
+                    number_of_flights_more = st.session_state.number_input('How many flights have you taken this year' +
                                                                 'that are 4 hours or more?: ', 0, 50)
                     number_of_flights_more = float(number_of_flights_more)
 
                     st.subheader('Recycling')
-                    recycle_newspaper = st.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
+                    recycle_newspaper = st.session_state.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
 
-                    recycle_aluminium = st.selectbox('Do you recycle aluminium and tin? (y/n): ', ['Yes', 'No'])
+                    recycle_aluminium = st.session_state.selectbox('Do you recycle aluminium and tin? (y/n): ', ['Yes', 'No'])
 
-                    trees = st.number_input("how many trees have you planted this year?: ", 0, 1000)
+                    trees = st.session_state.number_input("how many trees have you planted this year?: ", 0, 1000)
                     trees = float(trees)
                     carbon_offset = 46.2971   # the offset for each tree per year.
 
@@ -128,38 +147,38 @@ def main():
                     st.subheader('Utility usage:')
 
                     # user is asked to input the values to calculate their footprint for imperial(US)
-                    yearly_electric = st.number_input('How many Megajoules of electricity do you use per year?: ', 0, 100000)
+                    yearly_electric = st.session_state.number_input('How many Megajoules of electricity do you use per year?: ', 0, 100000)
                     yearly_electric = float(yearly_electric)
 
-                    yearly_natural_gas = st.number_input('How many gallons of natural gas do you use per year?: ', 0, 100000)
+                    yearly_natural_gas = st.session_state.number_input('How many gallons of natural gas do you use per year?: ', 0, 100000)
                     yearly_natural_gas = float(yearly_natural_gas)
 
-                    yearly_propane_gas = st.number_input('how many gallons of propane gas do you use per year?: ', 0, 100000)
+                    yearly_propane_gas = st.session_state.number_input('how many gallons of propane gas do you use per year?: ', 0, 100000)
                     yearly_propane_gas = float(yearly_propane_gas)
 
-                    yearly_oil = st.number_input('how many gallons of oil do you use per year for heating purposes?: ', 0, 100000)
+                    yearly_oil = st.session_state.number_input('how many gallons of oil do you use per year for heating purposes?: ', 0, 100000)
                     yearly_oil = float(yearly_oil)
 
                     st.subheader('Transport:')
-                    total_yearly_mileage = st.number_input('how many miles have you done in your vehicle this year?: ', 1, 100000)
+                    total_yearly_mileage = st.session_state.number_input('how many miles have you done in your vehicle this year?: ', 1, 100000)
                     total_yearly_mileage = float(total_yearly_mileage)
                     total_yearly_gallons = total_yearly_mileage / 25
                     total_yearly_gallons = float(total_yearly_gallons)
 
-                    number_of_flights_less = st.number_input('How many flights have you taken this year' +
+                    number_of_flights_less = st.session_state.number_input('How many flights have you taken this year' +
                                                                 ' that are 4 hours or less?: ', 0, 50)
                     number_of_flights_less = float(number_of_flights_less)
 
-                    number_of_flights_more = st.number_input('How many flights have you taken this year' +
+                    number_of_flights_more = st.session_state.number_input('How many flights have you taken this year' +
                                                                 ' that are 4 hours or more?: ', 0, 50)
                     number_of_flights_more = float(number_of_flights_more)
 
                     st.subheader('Recycling')
-                    recycle_newspaper = st.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
+                    recycle_newspaper = st.session_state.selectbox('Do you recycle newspaper? (y/n): ', ['Yes', 'No'])
 
-                    recycle_aluminium = st.selectbox('Do you recycle aluminium and tin? (y/n): ', ['Yes', 'No'])
+                    recycle_aluminium = st.session_state.selectbox('Do you recycle aluminium and tin? (y/n): ', ['Yes', 'No'])
 
-                    trees = st.number_input("how many trees have you planted this year?: ", 0, 1000)
+                    trees = st.session_state.number_input("how many trees have you planted this year?: ", 0, 1000)
                     trees = float(trees)
                     carbon_offset = 46.2971
 
@@ -446,6 +465,40 @@ def main():
 			    add_userdata(new_user,make_hashes(new_password))
 			    st.success("You have successfully created a valid Account")
 			    st.info("Go to Login Menu to login")
+st.write(
+    f"""
+    Settings values
+    ---------------
+    - **Input**: {st.session_state.text}
+    - **number_input**: {st.session_state.number_input}
+    - **Slider**: `{st.session_state.slider}`
+    - **Checkbox**: `{st.session_state.checkbox}`
+    - **Radio**: {st.session_state.radio}
+    - **Selectbox**: {st.session_state.selectbox}
+    - **Multiselect**: {", ".join(st.session_state.multiselect)}
+    """
+
+)
+
+
+def page_settings():
+    st.header("Change settings")
+
+    st.text_input("Input", key=persist("text"))
+    st.slider("Slider", 0, 10, key=persist("slider"))
+    st.checkbox("Checkbox", key=persist("checkbox"))
+    st.radio("Radio", st.session_state["options"], key=persist("radio"))
+    st.selectbox("Selectbox", st.session_state["options"], key=persist("selectbox"))
+    st.multiselect("Multiselect", st.session_state["options"], key=persist("multiselect"))
+
+
+PAGES = {
+    "home": page_home,
+    "settings": page_settings,
+
+
+	
 
 if __name__ == '__main__':
+    load_widget_state()
 	main()
