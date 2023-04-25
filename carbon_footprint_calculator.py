@@ -101,7 +101,7 @@ def page_home():
 			    st.success("Logged In as {}".format(username))
 
 # user chooses either metric or imperial, the results differ for each option
-        metric_imperial = st.session_state.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
+    metric_imperial = st.session_state.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
                 if metric_imperial == 'Metric':
                     st.subheader('Utility usage:')
 
