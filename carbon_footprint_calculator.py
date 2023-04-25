@@ -66,10 +66,6 @@ if mode == 'Login':
     if sidebar.button('Login'):
         if check_credentials(username, password):
             st.success('Welcome back {}'.format(username))
-
-            del mode
-            del username
-            del password
             
             # user chooses either metric or imperial, the results differ for each option
             metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
