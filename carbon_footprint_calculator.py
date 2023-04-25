@@ -427,11 +427,11 @@ def main():
 
                     # Add a button to log out
                     if st.button('Log out'):
-                    st.info('You have been successfuly logged out! Goodbye.')
-                    # Clear the username and password inputs
-                    sidebar.empty()
-                    # Reload the page
-                    st.experimental_rerun()
+                        st.info('You have been successfuly logged out! Goodbye.')
+                        # Clear the username and password inputs
+                        sidebar.empty()
+                        # Reload the page
+                        st.experimental_rerun()
 
 			else:
 			    st.warning("Incorrect Username/Password")
