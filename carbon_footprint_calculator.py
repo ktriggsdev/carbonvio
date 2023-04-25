@@ -59,8 +59,8 @@ mode = sidebar.radio('Choose mode', ['Login', 'Register'], key="mode")
 
 # If the user chooses login, ask them to enter username and password in the sidebar
 if mode == 'Login':
-    username = sidebar.text_input('Username', key="mode")
-    password = sidebar.text_input('Password', type='password', key="mode")
+    username = sidebar.text_input('Username', key="user")
+    password = sidebar.text_input('Password', type='password', key="password")
 
     # If the user clicks the login button, check the credentials and display a message
     if sidebar.button('Login'):
