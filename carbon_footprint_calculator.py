@@ -425,9 +425,9 @@ if mode == 'Login':
             sidebar.empty()
             # Reload the page
             st.experimental_rerun()
-else:
-    st.error('Sorry, that isnt a valid username or password. Please try again')
-    st.write("test 6")
+    else:
+        st.error('Sorry, that isnt a valid username or password. Please try again')
+        st.write("test 6")
 
 # If the user chooses register, ask them to enter a new username and password in the sidebar
 if mode == 'Register':
