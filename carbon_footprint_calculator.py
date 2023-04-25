@@ -56,23 +56,23 @@ def view_all_users():
 
 def main():
     if "page" not in st.session_state:
-    # initialize session state.
-    st.session_state.update({
-        "page": "home",
+        # initialize session state.
+        st.session_state.update({
+            "page": "home",
 
-        "options": ["Home", "Login", "Signup", "Metric", "Imperial", "Yes", "No"],
+            "options": ["Home", "Login", "Signup", "Metric", "Imperial", "Yes", "No"],
 
-        "text": "",
-        "slider": 0,
-        "number_input": 0,
-        "checkbox": False,
-        "selectbox": "Hello",
-        "multiselect": ["Hello", "Everyone"],
-    })
+            "text": "",
+            "slider": 0,
+            "number_input": 0,
+            "checkbox": False,
+            "selectbox": "Hello",
+            "multiselect": ["Hello", "Everyone"],
+        })
 
-    page = st.sidebar.radio("Select your page", tuple(PAGES.keys()), format_func=str.capitalize)
+        page = st.sidebar.radio("Select your page", tuple(PAGES.keys()), format_func=str.capitalize)
 
-    PAGES[page]()
+        PAGES[page]()
 
 
 def page_home():
