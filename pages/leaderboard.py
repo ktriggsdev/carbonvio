@@ -64,14 +64,14 @@ if mode == 'Login':
             st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
 
             # Add a button to log out
-if st.button('Log out'):
+            if st.button('Log out'):
                 st.info('You have been successfuly logged out! Goodbye.')
                 # Clear the username and password inputs
                 sidebar.empty()
                 # Reload the page
                 st.experimental_rerun()
 else:
-            st.error('Sorry, that isnt a valid username or password. Please try again')
+    st.error('Sorry, that isnt a valid username or password. Please try again')
 
 # If the user chooses register, ask them to enter a new username and password in the sidebar
 if  mode == 'Register':
