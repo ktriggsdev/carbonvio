@@ -55,7 +55,7 @@ def register_account(username, password):
 sidebar = st.sidebar
 
 # Ask the user to choose between login or register in the sidebar
-mode = sidebar.radio('Choose mode', ['Login', 'Register'])
+mode = sidebar.radio('Choose mode', ['Login', 'Register'] key="mode")
 
 # If the user chooses login, ask them to enter username and password in the sidebar
 if mode == 'Login':
@@ -67,7 +67,7 @@ if mode == 'Login':
         if check_credentials(username, password):
             st.success('Welcome back {}'.format(username))
 
-            mode = sidebar.text(f"Welcome {username}!" 
+            del st.session_state[mode]
             # user chooses either metric or imperial, the results differ for each option
             metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
 
