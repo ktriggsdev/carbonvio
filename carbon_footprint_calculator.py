@@ -424,7 +424,7 @@ if mode == 'Login':
             # Clear the username and password inputs
             sidebar.empty()
             # Reload the page
-            st.experimental_rerun()
+            # st.experimental_rerun()
     else:
         st.error('Sorry, that isnt a valid username or password. Please try again')
         st.write("test 6")
