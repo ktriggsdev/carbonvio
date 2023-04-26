@@ -25,7 +25,7 @@ except FileNotFoundError:
 
 # Define a function to hash passwords
 def hash_password(password):
-    return hashlib.sha1(password.encode('utf-8')).hexdigest()
+    return hashlib.sha1(password.encode('utf-8', error="replace")).hexdigest()
 
 # Define a function to check if the username and password are valid
 def check_credentials(username, password):
