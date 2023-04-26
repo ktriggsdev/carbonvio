@@ -49,19 +49,19 @@ except FileNotFoundError:
 sidebar = st.sidebar
 
 # Ask the user to choose between login or register in the sidebar
-mode = sidebar.radio('Choose mode', ['Login', 'Register'])
+#mode = sidebar.radio('Choose mode', ['Login', 'Register'])
 
 # If the user chooses login, ask them to enter username and password in the sidebar
-if mode == 'Login':
-    username = sidebar.text_input('Username')
-    password = sidebar.text_input('Password', type='password')
+#if mode == 'Login':
+username = sidebar.text_input('username')
+password = sidebar.text_input('password', type='password')
 
     # If the user clicks the login button, check the credentials and display a message
     #if sidebar.button('Login'):
         #if check_credentials(username, password):
             #st.success('Welcome back {}'.format(username))
 
-    st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
+st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
 
             # Add a button to log out
             #if st.button('Log out'):
