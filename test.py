@@ -24,7 +24,8 @@ st.title('Welcome to Carbonvio!')
 sidebar = st.sidebar
 
 username = sidebar.text_input('username')
-password = bytes(sidebar.text_input('password', type='password'))
+password = sidebar.text_input('password', type='password')
+password = bytearray(password)
 st.write("test 2")
 
 detected_encoding = chardet.detect(password)['encoding']
