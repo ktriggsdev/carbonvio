@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import hashlib
 from streamlit_login_auth_ui.widgets import __login__
 
 file = 'img/carbonvio.png'
