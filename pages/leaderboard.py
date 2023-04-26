@@ -35,15 +35,13 @@ def check_credentials(username, password):
 # Define a function to register a new account
 def register_account(username, password):
     password_hash = hash_password(password)
-    # Check if the username is already taken
     if username in df['username'].values:
         return False
-    else:
-        # Append the new credentials to the dataframe
-        df.loc[len(df)] = [username, password_hash]
-        # Save the dataframe to the file
-        df.to_csv(filename, index=False)
-        return True
+    # Append the new credentials to the dataframe
+    df.loc[len(df)] = [username, password_hash]
+    # Save the dataframe to the file
+    df.to_csv(filename, index=False)
+    return True
 
 # Create a title and a sidebar
 sidebar = st.sidebar
@@ -59,7 +57,7 @@ if mode == 'Login':
     # If the user clicks the login button, check the credentials and display a message
     if sidebar.button('Login'):
         if check_credentials(username, password):
-            st.success('Welcome back {}'.format(username))
+            st.success(f'Welcome back {username}')
 
             st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
 
