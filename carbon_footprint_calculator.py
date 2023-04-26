@@ -383,7 +383,7 @@ if LOGGED_IN == True:
         c.execute('INSERT INTO leaderboard (name, carbon_total) VALUES (?, ?)', fields)
         conn.commit()
     
-    st.expander(" #### Show preview of leaderboard :point_down:")
+    st.info(" #### Show preview of leaderboard :point_down:")
 
     # Read the data from the SQLite database
     c.execute('SELECT * FROM leaderboard')
