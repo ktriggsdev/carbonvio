@@ -14,6 +14,20 @@ st.set_page_config(
     })
 st.image(file)
 
+# Create a connection to the SQLite database
+conn = sqlite3.connect('leaderboard.db')
+c = conn.cursor()
+
+# Create a table if it doesn't exist
+c.execute('''
+    CREATE TABLE IF NOT EXISTS leaderboard (
+        name TEXT,
+        carbon_total FLOAT
+    )
+''')
+conn.commit()
+
+
 # sets a title for the page
 st.title('Welcome to Carbonvio!')
 
@@ -30,7 +44,6 @@ if LOGGED_IN == True:
 
     # user chooses either metric or imperial, the results differ for each option
     metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
-    st.write("test 4")
 
     if metric_imperial == 'Metric':
         st.subheader('Utility usage:')
@@ -365,12 +378,29 @@ if LOGGED_IN == True:
     result = st.button("Submit")
 
     if result:
+        # Insert the data into the SQLite database
+        c.execute('INSERT INTO leaderboard (name, carbon_total) VALUES (?, ?)', fields)
+        conn.commit()
 
-        with open('leaderboard.csv', 'a', newline='') as f:  # Append & read mode
+    st.info(" #### Show contents of the SQLite database :point_down:")
 
-            writer = csv.writer(f)
-            writer.writerow(fields)
+    # Read the data from the SQLite database
+    c.execute('SELECT * FROM leaderboard')
+    data = c.fetchall()
 
-    st.info(" #### Show contents of the CSV file :point_down:")
-    st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
+    # Create a DataFrame from the fetched data and display it
+    df = pd.DataFrame(data, columns=["name", "carbon_total"])
+    st.dataframe(df, height=300)
 
+    # Close the connection to the SQLite database
+    conn.close()
+
+    #if result:
+
+        #with open('leaderboard.csv', 'a', newline='') as f:  # Append & read mode
+
+            #writer = csv.writer(f)
+            #writer.writerow(fields)
+
+    #st.info(" #### Show contents of the CSV file :point_down:")
+    #st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)

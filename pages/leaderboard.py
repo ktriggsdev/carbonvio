@@ -11,6 +11,10 @@ st.set_page_config(
     })
 st.title('Carbon Emissions Leaderboard')
 
+# Connect to the SQLite database
+conn = sqlite3.connect('leaderboard.db')
+c = conn.cursor()
+
 __login__obj = __login__(auth_token = "courier_auth_token", 
 company_name = "Carbonvio",
 width = 200, height = 250, 
@@ -22,4 +26,15 @@ LOGGED_IN = __login__obj.build_login_ui()
 
 if LOGGED_IN == True:
 
-    st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
+    # Execute the SELECT statement and fetch the data
+    c.execute('SELECT * FROM leaderboard')
+    data = c.fetchall()
+
+    # Create a DataFrame from the fetched data
+    df = pd.DataFrame(data, columns=["name", "carbon_total"])
+
+    # Display the DataFrame using Streamlit
+    st.dataframe(df)
+
+    # Close the connection to the SQLite database
+    conn.close()
