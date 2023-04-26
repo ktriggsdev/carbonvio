@@ -57,30 +57,30 @@ if mode == 'Login':
     password = sidebar.text_input('Password', type='password')
 
     # If the user clicks the login button, check the credentials and display a message
-    if sidebar.button('Login'):
-        if check_credentials(username, password):
-            st.success('Welcome back {}'.format(username))
+    #if sidebar.button('Login'):
+        #if check_credentials(username, password):
+            #st.success('Welcome back {}'.format(username))
 
-            st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
+    st.dataframe(pd.read_csv("leaderboard.csv", names=["name", "carbon_total"]), height=300)
 
             # Add a button to log out
-            if st.button('Log out'):
-                st.info('You have been successfuly logged out! Goodbye.')
+            #if st.button('Log out'):
+                #st.info('You have been successfuly logged out! Goodbye.')
                 # Clear the username and password inputs
-                sidebar.empty()
+                #sidebar.empty()
                 # Reload the page
-                st.experimental_rerun()
-        else:
-            st.error('Sorry, that isnt a valid username or password. Please try again')
+                #st.experimental_rerun()
+        #else:
+            #st.error('Sorry, that isnt a valid username or password. Please try again')
 
 # If the user chooses register, ask them to enter a new username and password in the sidebar
-if  mode == 'Register':
-    new_username = sidebar.text_input('Create a username')
-    new_password = sidebar.text_input('Create a new password', type='password')
+#if  mode == 'Register':
+    #new_username = sidebar.text_input('Create a username')
+    #new_password = sidebar.text_input('Create a new password', type='password')
 
     # If the user clicks the register button, register a new account and display a message
-if sidebar.button('Register'):
-        if register_account(new_username, new_password):
-            st.success('Welcome to Carbonvio!. You can now login with your new credentials.')
-        else:
-            st.error('Sorry, that username is already taken. Please choose a different one.')
+#if sidebar.button('Register'):
+        #if register_account(new_username, new_password):
+            #st.success('Welcome to Carbonvio!. You can now login with your new credentials.')
+        #else:
+            #st.error('Sorry, that username is already taken. Please choose a different one.')
