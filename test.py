@@ -417,7 +417,7 @@ if mode == 'Register':
     new_password = sidebar.text_input('Create a new password', type='password')
 
     # Hash the new password
-    new_password_hash = hashlib.sha1(new_password.encode('utf-8')).hexdigest()
+    new_password_hash = hashlib.sha1(new_password.encode('ISO-8859-1')).hexdigest()
 
  # If the user clicks the register button, register a new account and display a message
 if sidebar.button('Register'):
