@@ -424,11 +424,11 @@ if mode == 'Register':
     #new_password_hash = hashlib.sha1(new_password.encode('utf-8', error="replace")).hexdigest()
 
  # If the user clicks the register button, register a new account and display a message
-if sidebar.button('Register'):
-        if new_username in df['username'].values:
-            st.error("Username already taken")
-        else:
+#if sidebar.button('Register'):
+        #if new_username in df['username'].values:
+            #st.error("Username already taken")
+        #else:
             # Append the new credentials to the dataframe and save it to the file
-            df = df.append({'username': new_username, 'password': new_password_hash}, ignore_index=True)
-            df.to_csv(filename, index=False)
-            st.success("Account created successfully!")
+            #df = df.append({'username': new_username, 'password': new_password_hash}, ignore_index=True)
+            #df.to_csv(filename, index=False)
+            #st.success("Account created successfully!")
