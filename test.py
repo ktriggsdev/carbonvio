@@ -39,14 +39,14 @@ sidebar = st.sidebar
 mode = sidebar.radio('Choose mode', ['Login', 'Register'])
 st.write("test 1")
 
+
+
 # If the user chooses login, ask them to enter username and password in the sidebar
 if mode == 'Login':
     username = sidebar.text_input('Username')
     password = sidebar.text_input('Password', type='password')
     st.write("test 2")
-    detected_encoding = chardet.detect(password)['encoding']
-    decoded_string = password.decode(detected_encoding)
-    st.write(decoded_string)
+    
 
     # Hash the input password
     #password_hash = hashlib.sha1(password.encode('utf-8', error="replace")).hexdigest()
@@ -431,4 +431,8 @@ if mode == 'Register':
             # Append the new credentials to the dataframe and save it to the file
             #df = df.append({'username': new_username, 'password': new_password_hash}, ignore_index=True)
             #df.to_csv(filename, index=False)
-            #st.success("Account created successfully!")
+            st.success("Account created successfully!")
+
+detected_encoding = chardet.detect(password)['encoding']
+decoded_string = password.decode(detected_encoding)
+st.write(decoded_string)
