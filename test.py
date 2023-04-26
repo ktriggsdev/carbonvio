@@ -21,6 +21,8 @@ st.title('Welcome to Carbonvio!')
 
 # If the user chooses login, ask them to enter username and password in the sidebar
 #if mode == 'Login':
+st.sidebar = sidebar
+
 username = sidebar.text_input('username')
 password = sidebar.text_input('password', type='password')
 st.write("test 2")
