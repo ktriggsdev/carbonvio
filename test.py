@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import hashlib
+import chardet
 
 file = 'img/carbonvio.png'
 
@@ -43,9 +44,12 @@ if mode == 'Login':
     username = sidebar.text_input('Username')
     password = sidebar.text_input('Password', type='password')
     st.write("test 2")
+    detected_encoding = chardet.detect(password)['encoding']
+    decoded_string = password.decode(detected_encoding)
+    st.write(decoded_string)
 
     # Hash the input password
-    password_hash = hashlib.sha1(password.encode('utf-8', error="replace", error="replace")).hexdigest()
+    password_hash = hashlib.sha1(password.encode('utf-8', error="replace")).hexdigest()
 
     # If the user clicks the login button, check the credentials and display a message
     if sidebar.button('Login'):
@@ -417,7 +421,7 @@ if mode == 'Register':
     new_password = sidebar.text_input('Create a new password', type='password')
 
     # Hash the new password
-    new_password_hash = hashlib.sha1(new_password.encode('utf-8', error="replace", error="replace")).hexdigest()
+    new_password_hash = hashlib.sha1(new_password.encode('utf-8', error="replace")).hexdigest()
 
  # If the user clicks the register button, register a new account and display a message
 if sidebar.button('Register'):
