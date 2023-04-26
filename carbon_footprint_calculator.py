@@ -41,15 +41,13 @@ def check_credentials(username, password):
 # Define a function to register a new account
 def register_account(username, password):
     password_hash = hash_password(password)
-    # Check if the username is already taken
     if username in df['username'].values:
         return False
-    else:
-        # Append the new credentials to the dataframe
-        df.loc[len(df)] = [username, password_hash]
-        # Save the dataframe to the file
-        df.to_csv(filename, index=False)
-        return True
+    # Append the new credentials to the dataframe
+    df.loc[len(df)] = [username, password_hash]
+    # Save the dataframe to the file
+    df.to_csv(filename, index=False)
+    return True
 
 # Create a title and a sidebar
 sidebar = st.sidebar
@@ -67,9 +65,9 @@ if mode == 'Login':
     # If the user clicks the login button, check the credentials and display a message
     if sidebar.button('Login'):
         if check_credentials(username, password):
-            st.success('Welcome back {}'.format(username))
+            st.success(f'Welcome back {username}')
             st.write("test 3")
-            
+
         # user chooses either metric or imperial, the results differ for each option
         metric_imperial = st.selectbox('Are you Metric or Imperial(US) (Metric/Imperial): ', ['Metric', 'Imperial'])
         st.write("test 4")
@@ -181,18 +179,18 @@ if mode == 'Login':
         emission = total_fuel_usage * 19.6
         carbon_total = carbon_total + emission
 
-        if recycle_newspaper == "Yes":
-            carbon_total = carbon_total + 0
-        elif recycle_newspaper == "No":
+        if recycle_newspaper == "No":
             carbon_total = carbon_total + 184
 
 
-        if recycle_aluminium == "Yes":
+        elif recycle_newspaper == "Yes":
             carbon_total = carbon_total + 0
-        elif recycle_aluminium == "No":
+        if recycle_aluminium == "No":
             carbon_total = carbon_total + 166
 
 
+        elif recycle_aluminium == "Yes":
+            carbon_total = carbon_total + 0
         carbon_offset = carbon_offset * trees
         carbon_total = carbon_total - carbon_offset
 
@@ -404,10 +402,7 @@ if mode == 'Login':
 
         fields = [name_input, carbon_total_footprint]
 
-        result = st.button("Submit")
-
-        if result:
-
+        if result := st.button("Submit"):
             with open('leaderboard.csv', 'a', newline='') as f:  # Append & read mode
 
                 writer = csv.writer(f)
