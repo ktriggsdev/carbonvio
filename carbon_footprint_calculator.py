@@ -30,26 +30,26 @@ except FileNotFoundError:
     })
 
 # Define a function to hash passwords
-def hash_password(password):
-    return hashlib.sha1(password.encode('utf-8', error="replace")).hexdigest()
+#def hash_password(password):
+    #return hashlib.sha1(password.encode('utf-8', error="replace")).hexdigest()
 
 # Define a function to check if the username and password are valid
-def check_credentials(username, password):
-    password_hash = hash_password(password)
-    return (username in df['username'].values) and (password_hash == df[df['username'] == username]['password'].iloc[0])
+#def check_credentials(username, password):
+    #password_hash = hash_password(password)
+    #return (username in df['username'].values) and (password_hash == df[df['username'] == username]['password'].iloc[0])
 
 # Define a function to register a new account
-def register_account(username, password):
-    password_hash = hash_password(password)
+#def register_account(username, password):
+    #password_hash = hash_password(password)
     # Check if the username is already taken
-    if username in df['username'].values:
-        return False
-    else:
+    #if username in df['username'].values:
+        #return False
+    #else:
         # Append the new credentials to the dataframe
-        df.loc[len(df)] = [username, password_hash]
+        #df.loc[len(df)] = [username, password_hash]
         # Save the dataframe to the file
-        df.to_csv(filename, index=False)
-        return True
+        #df.to_csv(filename, index=False)
+        #return True
 
 # Create a title and a sidebar
 sidebar = st.sidebar
