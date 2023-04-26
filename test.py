@@ -45,7 +45,7 @@ if mode == 'Login':
     st.write("test 2")
 
     # Hash the input password
-    password_hash = hashlib.sha1(password.encode('utf-8', error="replace")).hexdigest()
+    password_hash = hashlib.sha1(password.encode('ISO-8859-1')).hexdigest()
 
     # If the user clicks the login button, check the credentials and display a message
     if sidebar.button('Login'):
